@@ -9,7 +9,6 @@
     std::vector<int> SweatyCustomer::order(const std::vector<Workout> &workout_options) { }
     std::string SweatyCustomer::toString() const { }
 
-
     //CheapCustomer
     CheapCustomer::CheapCustomer(std::string name, int id) : Customer(name, id) { }
     std::vector<int> CheapCustomer::order(const std::vector<Workout> &workout_options) { }

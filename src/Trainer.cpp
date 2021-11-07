@@ -24,3 +24,10 @@
     {
         return  open;
     }
+
+    /*
+    int capacity;
+    bool open;
+    std::vector<Customer*> customersList;
+    std::vector<OrderPair> orderList;
+     */

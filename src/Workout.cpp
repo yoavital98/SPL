@@ -18,3 +18,9 @@
         WorkoutType Workout::getType() const {
             return type;
         }
+        /*
+        const int id;
+        const std::string name;
+        const int price;
+        const WorkoutType type;
+         */
