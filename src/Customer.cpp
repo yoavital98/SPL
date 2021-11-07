@@ -51,7 +51,7 @@ using namespace std;
         std::vector<int>* workout_list = new std::vector<int>();
     for(int i=0; i< workout_options.size(); i++){
         if(workout_options[i].getType() == ANAEROBIC) {
-            workout_list->push_back(workout_options[i].getId());
+            workout_list->
         }
     }
         return *workout_list;
