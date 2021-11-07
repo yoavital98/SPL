@@ -42,23 +42,25 @@ using namespace std;
         }
         return *workout_list;
     }
-    std::string CheapCustomer::toString() const { return Customer::getName() + ",swt";}
+    std::string CheapCustomer::toString() const { return Customer::getName() + ",chp";}
 
     //HeavyMuscleCustomer
     HeavyMuscleCustomer::HeavyMuscleCustomer(std::string name, int id) : Customer(name, id) { }
     std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_options) {
-        std::sort(workout_options.begin(), workout_options.end(), greater<int>());
-        std::vector<std::pair<int, int>> *workout_list = new std::vector<std::pair<int, int>>;
+//        std::sort(workout_options.begin(), workout_options.end());
+        std::vector<int>* workout_list = new std::vector<int>();
     for(int i=0; i< workout_options.size(); i++){
         if(workout_options[i].getType() == ANAEROBIC) {
-            std::pair<int, int> pair(workout_options[i].getId(), workout_options[i].getPrice());
-            workout_list->push_back(pair);
+            workout_list->push_back(workout_options[i].getId());
         }
     }
+        return *workout_list;
 }
-    std::string HeavyMuscleCustomer::toString() const { }
+    std::string HeavyMuscleCustomer::toString() const { return Customer::getName() + ",mcl";}
 
-    //FullBodyCustomer
+
+
+//FullBodyCustomer
     FullBodyCustomer::FullBodyCustomer(std::string name, int id) : Customer(name, id) { }
     std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_options) {}
     std::string FullBodyCustomer::toString() const { }
