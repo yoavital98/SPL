@@ -47,7 +47,6 @@ std::string CheapCustomer::toString() const { return Customer::getName() + ",chp
 //HeavyMuscleCustomer
 HeavyMuscleCustomer::HeavyMuscleCustomer(std::string name, int id) : Customer(name, id) { }
 std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_options) {
-    <<<<<<< HEAD
     std::vector<Workout> workout_list(workout_options);
     std::sort(workout_list.begin(), workout_list.end(), greater<int>());
     std::vector<int>* workout = new vector<int>();
@@ -55,14 +54,6 @@ std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_
         if(workout_list[i].getType() == ANAEROBIC) {
             workout->push_back(workout_list[i].getId());
         }
-        =======
-//        std::sort(workout_options.begin(), workout_options.end());
-        std::vector<int>* workout_list = new std::vector<int>();
-        for(int i=0; i< workout_options.size(); i++){
-            if(workout_options[i].getType() == ANAEROBIC) {
-                workout_list->
-            }
-            >>>>>>> 5c733f834435d9ea3a57cb8172149a7f7ff3ecae
         }
         return *workout;
     }
