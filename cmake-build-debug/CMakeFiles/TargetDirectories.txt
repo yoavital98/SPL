@@ -1,3 +1,3 @@
-C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/SPL.dir
-C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir
+C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/rebuild_cache.dir

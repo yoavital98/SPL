@@ -8,23 +8,23 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug"/>
+				<Option working_dir="C:/Users/User/Desktop/SPL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SPL">
-				<Option output="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/SPL.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug"/>
+				<Option output="C:/Users/User/Desktop/SPL/cmake-build-debug/SPL.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/User/Desktop/SPL/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/include"/>
+					<Add directory="C:/Users/User/Desktop/SPL/include"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
@@ -33,20 +33,20 @@
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 SPL"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 SPL"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="SPL/fast">
-				<Option output="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/SPL.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug"/>
+				<Option output="C:/Users/User/Desktop/SPL/cmake-build-debug/SPL.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/User/Desktop/SPL/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/include"/>
+					<Add directory="C:/Users/User/Desktop/SPL/include"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward"/>
@@ -55,67 +55,67 @@
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 SPL/fast"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 SPL/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug"/>
+				<Option working_dir="C:/Users/User/Desktop/SPL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug"/>
+				<Option working_dir="C:/Users/User/Desktop/SPL/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/User/Desktop/SPL/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/include/Action.h">
+		<Unit filename="C:/Users/User/Desktop/SPL/include/Action.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/include/Customer.h">
+		<Unit filename="C:/Users/User/Desktop/SPL/include/Customer.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/include/Studio.h">
+		<Unit filename="C:/Users/User/Desktop/SPL/include/Studio.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/include/Trainer.h">
+		<Unit filename="C:/Users/User/Desktop/SPL/include/Trainer.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/include/Workout.h">
+		<Unit filename="C:/Users/User/Desktop/SPL/include/Workout.h">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Action.cpp">
+		<Unit filename="C:/Users/User/Desktop/SPL/src/Action.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Customer.cpp">
+		<Unit filename="C:/Users/User/Desktop/SPL/src/Customer.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Studio.cpp">
+		<Unit filename="C:/Users/User/Desktop/SPL/src/Studio.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Trainer.cpp">
+		<Unit filename="C:/Users/User/Desktop/SPL/src/Trainer.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Workout.cpp">
+		<Unit filename="C:/Users/User/Desktop/SPL/src/Workout.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/main.cpp">
+		<Unit filename="C:/Users/User/Desktop/SPL/src/main.cpp">
 			<Option target="SPL"/>
 		</Unit>
-		<Unit filename="C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/CMakeLists.txt">
+		<Unit filename="C:/Users/User/Desktop/SPL/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

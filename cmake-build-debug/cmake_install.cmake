@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL
+# Install script for directory: C:/Users/User/Desktop/SPL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/User/Desktop/SPL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
