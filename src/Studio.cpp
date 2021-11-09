@@ -14,9 +14,21 @@
             exit(1); // terminate with error
         }
     }
-    void Studio::start() { open = true; }
+    void Studio::start() { open = true;
+    while(open)
+    {
+
+    }
+}
+    void Studio::CloseStudio() {
+        open=false;
+    }
     int Studio::getNumOfTrainers() const { return trainers.size();}
-    Trainer* Studio::getTrainer(int tid) { return trainers[tid];}
+    Trainer* Studio::getTrainer(int tid) {
+        if(tid >= trainers.size())
+            return nullptr;
+            return trainers[tid];
+        }
     const std::vector<BaseAction*>& Studio::getActionsLog() const { return actionsLog; } // Return a  return actionsLog; to the history of actions
     std::vector<Workout>& Studio::getWorkoutOptions() { return workout_options; }
 

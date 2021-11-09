@@ -12,22 +12,22 @@
 
     void Trainer::removeCustomer(int id)
     {
-        for(int i = 0; i < customersList.size(); i++) {
-            if (customersList[i]->getId() == id)
-                customersList.erase(customersList.begin() + i);
-            break;
-        }
+        customersList.erase(customersList.begin() + id);
         for(int i = 0; i < orderList.size(); i++){
             if(orderList[i].first == id)
                 orderList.erase(orderList.begin() + 1);
         }
     }
 
+    void Trainer::removeCustomers() {
+        customersList.clear();
+    }
+
     Customer* Trainer::getCustomer(int id)
     {
-        for (int i = 0; i < customersList.size(); i++)
-            if (customersList[i]->getId() == id)
-                return customersList[i];
+        if(id >= customersList.size())
+            return nullptr;
+        return customersList[id];
     }
 
     std::vector<Customer*>& Trainer::getCustomers()
@@ -44,6 +44,11 @@
             break;
         }
     }
+
+    void Trainer::addOrder(OrderPair order){
+        orderList.push_back(order);
+    }
+
 
     void Trainer::openTrainer()
     {open = true;}
