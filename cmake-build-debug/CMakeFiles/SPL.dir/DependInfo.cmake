@@ -15,7 +15,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/User/Desktop/SPL/src/Workout.cpp" "C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Workout.cpp.obj"
   "C:/Users/User/Desktop/SPL/src/main.cpp" "C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

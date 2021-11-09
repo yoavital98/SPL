@@ -7,8 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SPL.dir/src/main.cpp.obj"
   "SPL.exe"
   "SPL.exe.manifest"
+  "SPL.lib"
   "SPL.pdb"
-  "libSPL.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

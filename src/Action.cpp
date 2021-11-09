@@ -210,7 +210,7 @@ std::string BackupStudio::toString() const {
 RestoreStudio::RestoreStudio() { }
 void RestoreStudio::act(Studio &studio) {
     if(backup == nullptr)
-        BaseAction::error("Cannot move customer");
+        BaseAction::error("No backup available");
     else{
         studio = *backup;
     }
