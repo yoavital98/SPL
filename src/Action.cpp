@@ -22,6 +22,7 @@ void OpenTrainer::act(Studio &studio) {
             for(int i=0;i<customers.size();i++)
                 t->addCustomer(customers[i]);
         complete();
+        t->openTrainer();
     }
 }
 
@@ -57,7 +58,6 @@ void Order::act(Studio &studio) {
                 std::cout << customers[i]->toString() << " Is Doing " << workouts[ids[i]].getName() << std::endl;
             }
         }
-        t->openTrainer();
         complete();
     }
 }
