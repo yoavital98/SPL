@@ -33,8 +33,7 @@ std::string OpenTrainer::toString() const {
         customersName.pop_back();
     if(getStatus() == COMPLETED)
         return "open " + std::to_string(trainerId) + " " + customersName +" Completed";
-    else
-        return "open " + std::to_string(trainerId) + " " + customersName+ " "+getErrorMsg();
+    return "open " + std::to_string(trainerId) + " " + customersName+ " "+getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -62,9 +61,8 @@ void Order::act(Studio &studio) {
 }
 std::string Order::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "Order " << std::to_string(trainerId) << " Completed";
-    else
-        std::cout << "Order " << std::to_string(trainerId) << " "<< getErrorMsg();
+        return "Order " + std::to_string(trainerId) + " Completed";
+    return "Order " + std::to_string(trainerId) + " " + getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -93,9 +91,8 @@ void MoveCustomer::act(Studio &studio) {
 }
 std::string MoveCustomer::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "move " << srcTrainer << " " << dstTrainer << " " << id << " Completed";
-    else
-        std::cout << "move " << srcTrainer << " " << dstTrainer << " " << id << " " << getErrorMsg();
+        return "move " + std::to_string(srcTrainer) + " " + std::to_string(dstTrainer) + " " + std::to_string(id) + " Completed";
+    return "move " + std::to_string(srcTrainer) + " " + std::to_string(dstTrainer) + " " + std::to_string(id) + " " + getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -114,10 +111,8 @@ void Close::act(Studio &studio) {
 }
 std::string Close::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "Close " << std::to_string(trainerId) << " Completed";
-    else
-        std::cout << "Close " << std::to_string(trainerId) << " "<< getErrorMsg();
-
+        return "Close " + std::to_string(trainerId) + " Completed";
+    return "Close " + std::to_string(trainerId) + " "+ getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -132,9 +127,8 @@ void CloseAll::act(Studio &studio){
 }
 std::string CloseAll::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "CloseAll " << " Completed";
-    else
-        std::cout << "CloseAll "  << " "<< getErrorMsg();
+        return "CloseAll Completed";
+    return "CloseAll " + getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -150,9 +144,8 @@ void PrintWorkoutOptions::act(Studio &studio) {
 }
 std::string PrintWorkoutOptions::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "PrintWorkoutOptions " << " Completed";
-    else
-        std::cout << "PrintWorkoutOptions "  << " "<< getErrorMsg();
+        return "PrintWorkoutOptions Completed";
+    return "PrintWorkoutOptions " + getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -180,9 +173,8 @@ void PrintTrainerStatus::act(Studio &studio) {
 }
 std::string PrintTrainerStatus::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "PrintTrainerStatus " << " Completed";
-    else
-        std::cout << "PrintTrainerStatus "  << " "<< getErrorMsg();
+        return "PrintTrainerStatus Completed";
+    return "PrintTrainerStatus " + getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -195,9 +187,8 @@ void PrintActionsLog::act(Studio &studio) {
 }
 std::string PrintActionsLog::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "PrintActionsLog " << " Completed";
-    else
-        std::cout << "PrintActionsLog "  << " "<< getErrorMsg();
+        return "PrintActionsLog Completed";
+    return "PrintActionsLog " + getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -208,9 +199,8 @@ void BackupStudio::act(Studio &studio){
 }
 std::string BackupStudio::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "BackupStudio " << " Completed";
-    else
-        std::cout << "BackupStudio "  << " "<< getErrorMsg();
+        return "BackupStudio Completed";
+    return "BackupStudio " + getErrorMsg();
 }
 //==============================================================================================
 //==============================================================================================
@@ -222,11 +212,9 @@ void RestoreStudio::act(Studio &studio) {
     else{
         studio = *backup;
     }
-
 }
 std::string RestoreStudio::toString() const {
     if(getStatus() == COMPLETED)
-        std::cout << "RestoreStudio " << " Completed";
-    else
-        std::cout << "RestoreStudio "  << " "<< getErrorMsg();
+        return "RestoreStudio Completed";
+    return "RestoreStudio " + getErrorMsg();
 }
