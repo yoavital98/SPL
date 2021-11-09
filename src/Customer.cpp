@@ -54,39 +54,39 @@ std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_
         if(workout_list[i].getType() == ANAEROBIC) {
             workout->push_back(workout_list[i].getId());
         }
-        }
-        return *workout;
     }
-    std::string HeavyMuscleCustomer::toString() const { return Customer::getName() + ",mcl";}
+    return *workout;
+}
+std::string HeavyMuscleCustomer::toString() const { return Customer::getName() + ",mcl";}
 
 
 
 //FullBodyCustomer
-    FullBodyCustomer::FullBodyCustomer(std::string name, int id) : Customer(name, id) { }
-    std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_options) {
-        std::vector<Workout> workout_list(workout_options);
-        std::sort(workout_list.begin(), workout_list.end());
-        std::vector<int> cardio;
-        std::vector<int> mixType;
-        std::vector<int> anaerobic;
-        for(int i=0;i<workout_list.size();i++)
-        {
-            if(workout_list[i].getType()==CARDIO)
-                cardio.push_back(workout_list[i].getId());
-            if(workout_list[i].getType()==MIXED)
-                mixType.insert(mixType.begin(), workout_list[i].getId());
-            if(workout_list[i].getType()==ANAEROBIC)
-                anaerobic.push_back(workout_list[i].getId());
-            if(cardio.size()>0 && mixType.size()>0 && anaerobic.size()>0)
-                break;
-        }
-        std:vector<int> workout;
-        if(cardio.size()>0)
-            workout.push_back(cardio[0]);
-        if(mixType.size()>0)
-            workout.push_back(mixType[0]);
-        if(cardio.size()>0)
-            workout.push_back(anaerobic[0]);
-        return workout;
+FullBodyCustomer::FullBodyCustomer(std::string name, int id) : Customer(name, id) { }
+std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_options) {
+    std::vector<Workout> workout_list(workout_options);
+    std::sort(workout_list.begin(), workout_list.end());
+    std::vector<int> cardio;
+    std::vector<int> mixType;
+    std::vector<int> anaerobic;
+    for(int i=0;i<workout_list.size();i++)
+    {
+        if(workout_list[i].getType()==CARDIO)
+            cardio.push_back(workout_list[i].getId());
+        if(workout_list[i].getType()==MIXED)
+            mixType.insert(mixType.begin(), workout_list[i].getId());
+        if(workout_list[i].getType()==ANAEROBIC)
+            anaerobic.push_back(workout_list[i].getId());
+        if(cardio.size()>0 && mixType.size()>0 && anaerobic.size()>0)
+            break;
     }
-    std::string FullBodyCustomer::toString() const { return getName(); }
+    std::vector<int> workout;
+    if(!cardio.empty())
+        workout.push_back(cardio[0]);
+    if(!mixType.empty())
+        workout.push_back(mixType[0]);
+    if(!cardio.empty())
+        workout.push_back(anaerobic[0]);
+    return workout;
+}
+std::string FullBodyCustomer::toString() const { return getName(); }

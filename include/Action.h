@@ -11,7 +11,7 @@ enum ActionStatus{
 
 //Forward declaration
 class Studio;
-
+extern Studio* backup;
 class BaseAction{
 public:
     BaseAction();
