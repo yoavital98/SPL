@@ -16,7 +16,7 @@ void OpenTrainer::act(Studio &studio) {
         BaseAction::error("Workout session does not exist or is already open");
     else
     {
-        if(customers.size()>t->getCapacity())
+        if(customers.size()>t->getCapacity()-t->getCustomers().size())
             BaseAction::error("Cannot open a trainer session with more customers than its capacity");
         else
             for(int i=0;i<customers.size();i++)
@@ -53,9 +53,11 @@ void Order::act(Studio &studio) {
             ids = customers[i]->order(workouts);
             for(int i=0;i<ids.size();i++)
             {
+                t->addOrder(OrderPair (customers[i]->getId(), workouts[ids[i]]));
                 std::cout << customers[i]->toString() << " Is Doing " << workouts[ids[i]].getName() << std::endl;
             }
         }
+        t->openTrainer();
         complete();
     }
 }
