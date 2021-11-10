@@ -10,14 +10,14 @@ void Trainer::addCustomer(Customer* customer)
     customersList.push_back(customer);
 }
 
-void Trainer::removeCustomer(int id)
-{
+void Trainer::removeCustomer(int id) {
     customersList.erase(customersList.begin() + id);
-    for(int i = 0; i < orderList.size(); i++){
-        if(orderList[i].first == id)
+    for (int i = 0; i < orderList.size(); i++) {
+        if (orderList[i].first == id)
             orderList.erase(orderList.begin() + 1);
     }
 }
+
 
 void Trainer::removeCustomers() {
     customersList.clear();

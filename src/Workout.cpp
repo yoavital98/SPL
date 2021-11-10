@@ -7,9 +7,11 @@ int Workout::getId() const {return id;}
 std::string Workout::getName() const {return name;}
 int Workout::getPrice() const {return price;}
 WorkoutType Workout::getType() const {return type;}
-bool Workout::operator<(const Workout & other)
+Workout& Workout::operator=(const Workout& other)
 {
-    return price < other.price;
+this ->~Workout();
+new (this) Workout(other);
+return *this;
 }
 /*
 const int id;
