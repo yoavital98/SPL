@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/User/Desktop/SPL/src/Action.cpp" "C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Action.cpp.obj"
-  "C:/Users/User/Desktop/SPL/src/Customer.cpp" "C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Customer.cpp.obj"
-  "C:/Users/User/Desktop/SPL/src/Studio.cpp" "C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Studio.cpp.obj"
-  "C:/Users/User/Desktop/SPL/src/Trainer.cpp" "C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Trainer.cpp.obj"
-  "C:/Users/User/Desktop/SPL/src/Workout.cpp" "C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Workout.cpp.obj"
-  "C:/Users/User/Desktop/SPL/src/main.cpp" "C:/Users/User/Desktop/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/main.cpp.obj"
+  "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Action.cpp" "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Action.cpp.obj"
+  "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Customer.cpp" "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Customer.cpp.obj"
+  "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Studio.cpp" "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Studio.cpp.obj"
+  "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Trainer.cpp" "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Trainer.cpp.obj"
+  "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/Workout.cpp" "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/Workout.cpp.obj"
+  "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/src/main.cpp" "C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug/CMakeFiles/SPL.dir/src/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

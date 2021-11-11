@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\User\Desktop\SPL
+"C:\Users\yoavi\AppData\Local\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL"
 -- The C compiler identification is GNU 8.1.0
 -- The CXX compiler identification is GNU 8.1.0
 -- Detecting C compiler ABI info
@@ -13,4 +13,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/User/Desktop/SPL/cmake-build-debug
+-- Build files have been written to: C:/Users/yoavi/OneDrive - post.bgu.ac.il/Study/Semester C/SPL/Projects/hw1/SPL/cmake-build-debug

@@ -47,10 +47,6 @@ Studio::Studio(const std::string &configFilePath)
                 workoutType = WorkoutType(MIXED);
             if(words[1] == "Cardio")
                 workoutType = WorkoutType(CARDIO);
-            else
-            {
-                WorkoutType workoutType;
-            }
             workout_options.push_back(Workout(workOutId, words[0],stoi(words[2]),workoutType));
             workOutId++;
         }

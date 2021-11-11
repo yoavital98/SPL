@@ -43,19 +43,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Users\yoavi\AppData\Local\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Users\yoavi\AppData\Local\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\User\Desktop\SPL
+CMAKE_SOURCE_DIR = "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\User\Desktop\SPL\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/SPL.dir/depend.make
@@ -68,86 +68,86 @@ include CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Action.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Action.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
 CMakeFiles/SPL.dir/src/Action.cpp.obj: ../src/Action.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SPL.dir/src/Action.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Action.cpp.obj -c C:\Users\User\Desktop\SPL\src\Action.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SPL.dir/src/Action.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Action.cpp.obj -c "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Action.cpp"
 
 CMakeFiles/SPL.dir/src/Action.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/src/Action.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Desktop\SPL\src\Action.cpp > CMakeFiles\SPL.dir\src\Action.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Action.cpp" > CMakeFiles\SPL.dir\src\Action.cpp.i
 
 CMakeFiles/SPL.dir/src/Action.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/Action.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\Action.cpp -o CMakeFiles\SPL.dir\src\Action.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Action.cpp" -o CMakeFiles\SPL.dir\src\Action.cpp.s
 
 CMakeFiles/SPL.dir/src/Customer.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Customer.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
 CMakeFiles/SPL.dir/src/Customer.cpp.obj: ../src/Customer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SPL.dir/src/Customer.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Customer.cpp.obj -c C:\Users\User\Desktop\SPL\src\Customer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SPL.dir/src/Customer.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Customer.cpp.obj -c "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Customer.cpp"
 
 CMakeFiles/SPL.dir/src/Customer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/src/Customer.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Desktop\SPL\src\Customer.cpp > CMakeFiles\SPL.dir\src\Customer.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Customer.cpp" > CMakeFiles\SPL.dir\src\Customer.cpp.i
 
 CMakeFiles/SPL.dir/src/Customer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/Customer.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\Customer.cpp -o CMakeFiles\SPL.dir\src\Customer.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Customer.cpp" -o CMakeFiles\SPL.dir\src\Customer.cpp.s
 
 CMakeFiles/SPL.dir/src/main.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/main.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
 CMakeFiles/SPL.dir/src/main.cpp.obj: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SPL.dir/src/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\main.cpp.obj -c C:\Users\User\Desktop\SPL\src\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SPL.dir/src/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\main.cpp.obj -c "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\main.cpp"
 
 CMakeFiles/SPL.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/src/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Desktop\SPL\src\main.cpp > CMakeFiles\SPL.dir\src\main.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\main.cpp" > CMakeFiles\SPL.dir\src\main.cpp.i
 
 CMakeFiles/SPL.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\main.cpp -o CMakeFiles\SPL.dir\src\main.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\main.cpp" -o CMakeFiles\SPL.dir\src\main.cpp.s
 
 CMakeFiles/SPL.dir/src/Studio.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Studio.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
 CMakeFiles/SPL.dir/src/Studio.cpp.obj: ../src/Studio.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SPL.dir/src/Studio.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Studio.cpp.obj -c C:\Users\User\Desktop\SPL\src\Studio.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SPL.dir/src/Studio.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Studio.cpp.obj -c "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Studio.cpp"
 
 CMakeFiles/SPL.dir/src/Studio.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/src/Studio.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Desktop\SPL\src\Studio.cpp > CMakeFiles\SPL.dir\src\Studio.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Studio.cpp" > CMakeFiles\SPL.dir\src\Studio.cpp.i
 
 CMakeFiles/SPL.dir/src/Studio.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/Studio.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\Studio.cpp -o CMakeFiles\SPL.dir\src\Studio.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Studio.cpp" -o CMakeFiles\SPL.dir\src\Studio.cpp.s
 
 CMakeFiles/SPL.dir/src/Trainer.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Trainer.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
 CMakeFiles/SPL.dir/src/Trainer.cpp.obj: ../src/Trainer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SPL.dir/src/Trainer.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Trainer.cpp.obj -c C:\Users\User\Desktop\SPL\src\Trainer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SPL.dir/src/Trainer.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Trainer.cpp.obj -c "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Trainer.cpp"
 
 CMakeFiles/SPL.dir/src/Trainer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/src/Trainer.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Desktop\SPL\src\Trainer.cpp > CMakeFiles\SPL.dir\src\Trainer.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Trainer.cpp" > CMakeFiles\SPL.dir\src\Trainer.cpp.i
 
 CMakeFiles/SPL.dir/src/Trainer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/Trainer.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\Trainer.cpp -o CMakeFiles\SPL.dir\src\Trainer.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Trainer.cpp" -o CMakeFiles\SPL.dir\src\Trainer.cpp.s
 
 CMakeFiles/SPL.dir/src/Workout.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Workout.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
 CMakeFiles/SPL.dir/src/Workout.cpp.obj: ../src/Workout.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SPL.dir/src/Workout.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Workout.cpp.obj -c C:\Users\User\Desktop\SPL\src\Workout.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SPL.dir/src/Workout.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Workout.cpp.obj -c "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Workout.cpp"
 
 CMakeFiles/SPL.dir/src/Workout.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/src/Workout.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Desktop\SPL\src\Workout.cpp > CMakeFiles\SPL.dir\src\Workout.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Workout.cpp" > CMakeFiles\SPL.dir\src\Workout.cpp.i
 
 CMakeFiles/SPL.dir/src/Workout.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/Workout.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\Workout.cpp -o CMakeFiles\SPL.dir\src\Workout.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\src\Workout.cpp" -o CMakeFiles\SPL.dir\src\Workout.cpp.s
 
 # Object files for target SPL
 SPL_OBJECTS = \
@@ -171,7 +171,7 @@ SPL.exe: CMakeFiles/SPL.dir/build.make
 SPL.exe: CMakeFiles/SPL.dir/linklibs.rsp
 SPL.exe: CMakeFiles/SPL.dir/objects1.rsp
 SPL.exe: CMakeFiles/SPL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SPL.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SPL.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SPL.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -183,6 +183,6 @@ CMakeFiles/SPL.dir/clean:
 .PHONY : CMakeFiles/SPL.dir/clean
 
 CMakeFiles/SPL.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\User\Desktop\SPL C:\Users\User\Desktop\SPL C:\Users\User\Desktop\SPL\cmake-build-debug C:\Users\User\Desktop\SPL\cmake-build-debug C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles\SPL.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL" "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL" "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug" "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug" "C:\Users\yoavi\OneDrive - post.bgu.ac.il\Study\Semester C\SPL\Projects\hw1\SPL\cmake-build-debug\CMakeFiles\SPL.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/SPL.dir/depend
 
