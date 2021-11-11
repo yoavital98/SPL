@@ -1,6 +1,27 @@
 #include "Trainer.h"
 
+//Constructor
 Trainer::Trainer(int t_capacity) : capacity(t_capacity), open(false) {}
+//Destructor
+Trainer::~Trainer() {
+
+}
+//Copy Constructor
+Trainer::Trainer(const Trainer &other){
+
+}
+//Move Constructor
+Trainer::Trainer(Trainer &&other){
+
+}
+//Copy Assignment
+Trainer& Trainer::operator=(const Trainer &other){
+
+}
+//Move Assignment
+Trainer& Trainer::operator=(Trainer &&other){
+
+}
 
 int Trainer::getCapacity() const
 {return capacity;}

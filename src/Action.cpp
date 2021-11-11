@@ -9,7 +9,29 @@ std::string BaseAction::getErrorMsg() const { return "Error: "+errorMsg; }
 //==============================================================================================
 //==============================================================================================
 //Open Trainer
+//Constructor
 OpenTrainer::OpenTrainer(int id, std::vector<Customer *> &customersList) : trainerId(id), customers(customersList) { }
+//Destructor
+OpenTrainer::~OpenTrainer(){
+
+}
+//Copy Constructor
+OpenTrainer::OpenTrainer(const OpenTrainer &other){
+
+}
+//Move Constructor
+OpenTrainer::OpenTrainer(OpenTrainer &&other){
+
+}
+//Copy Assignment
+OpenTrainer& OpenTrainer::operator=(const OpenTrainer &other){
+
+}
+//Move Assignment
+OpenTrainer& OpenTrainer::operator=(OpenTrainer &&other){
+
+}
+
 void OpenTrainer::act(Studio &studio) {
     Trainer* t = studio.getTrainer(trainerId);
     if(t== nullptr || t->isOpen())

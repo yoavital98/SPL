@@ -2,10 +2,11 @@
 #include <fstream>
 
 
-//Studio
+//Constructors
 Studio::Studio() : open(false) {}
 Studio::Studio(const std::string &configFilePath)
 {
+    open = false; //I think so
     int x;
     std::ifstream inFile;
     inFile.open(configFilePath);
@@ -52,6 +53,27 @@ Studio::Studio(const std::string &configFilePath)
         }
         lineCount++;
     }
+}
+
+//Destructor
+Studio::~Studio() {
+
+}
+//Copy Constructor
+Studio::Studio(const Studio &other){
+
+}
+//Move Constructor
+Studio::Studio(Studio &&other){
+
+}
+//Copy Assignment
+Studio& Studio::operator=(const Studio &other){
+
+}
+//Move Assignment
+Studio& Studio::operator=(Studio &&other){
+
 }
 void Studio::start() { open = true;
     std::cout << "Studio is now open!" << std::endl;
