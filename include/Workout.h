@@ -15,7 +15,6 @@ public:
     int getPrice() const;
     WorkoutType getType() const;
     Workout& operator=(const  Workout & other);
-	bool operator< (const Workout &other) const;
 private:
 	const int id;
     const std::string name;
