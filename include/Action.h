@@ -30,7 +30,19 @@ private:
 
 class OpenTrainer : public BaseAction {
 public:
+    //Constructor
     OpenTrainer(int id, std::vector<Customer *> &customersList);
+    //Destructor
+    virtual ~OpenTrainer();
+    //Copy Constructor
+    OpenTrainer(const OpenTrainer &other);
+    //Move Constructor
+    OpenTrainer(OpenTrainer &&other);
+    //Copy Assignment
+    OpenTrainer& operator=(const OpenTrainer &other);
+    //Move Assignment
+    OpenTrainer& operator=(OpenTrainer &&other);
+    //========================================
     void act(Studio &studio);
     std::string toString() const;
 private:

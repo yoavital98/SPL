@@ -8,7 +8,19 @@ typedef std::pair<int, Workout> OrderPair;
 
 class Trainer{
 public:
+    //Constructor
     Trainer(int t_capacity);
+    //Destructor
+    virtual ~Trainer();
+    //Copy Constructor
+    Trainer(const Trainer &other);
+    //Move Constructor
+    Trainer(Trainer &&other);
+    //Copy Assignment
+    Trainer& operator=(const Trainer &other);
+    //Move Assignment
+    Trainer& operator=(Trainer &&other);
+    //========================================
     int getCapacity() const;
     void addCustomer(Customer* customer);
     void removeCustomer(int id);

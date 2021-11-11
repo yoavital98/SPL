@@ -9,8 +9,20 @@
 
 class Studio{		
 public:
-	Studio();
+    //Constructor
+    Studio();
     Studio(const std::string &configFilePath);
+    //Destructor
+    virtual ~Studio();
+    //Copy Constructor
+    Studio(const Studio &other);
+    //Move Constructor
+    Studio(Studio &&other);
+    //Copy Assignment
+    Studio& operator=(const Studio &other);
+    //Move Assignment
+    Studio& operator=(Studio &&other);
+    //========================================
     void start();
     int getNumOfTrainers() const;
     Trainer* getTrainer(int tid);
