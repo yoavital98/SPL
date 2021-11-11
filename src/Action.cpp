@@ -52,10 +52,10 @@ void Order::act(Studio &studio) {
         for(int i=0;i<customers.size();i++)
         {
             ids = customers[i]->order(workouts);
-            for(int i=0;i<ids.size();i++)
+            for(int j=0;j<ids.size();j++)
             {
-                t->addOrder(OrderPair (customers[i]->getId(), workouts[ids[i]]));
-                std::cout << customers[i]->toString() << " Is Doing " << workouts[ids[i]].getName() << std::endl;
+                t->addOrder(OrderPair (customers[i]->getId(), workouts[ids[j]]));
+                std::cout << customers[i]->toString() << " Is Doing " << workouts[ids[j]].getName() << std::endl;
             }
         }
         complete();
@@ -73,7 +73,7 @@ MoveCustomer::MoveCustomer(int src, int dst, int customerId) : srcTrainer(src), 
 void MoveCustomer::act(Studio &studio) {
     Trainer* tSRC = studio.getTrainer(srcTrainer);
     Trainer* tDST = studio.getTrainer(dstTrainer);
-
+    // std::cout << tSRC << " : tsrc is open: " << tSRC->isOpen() << " tDST : " << tDST << " tdst is open : " << tDST->isOpen() << "TSRC : " << tSRC->getCustomer(id) << " size : " << tDST->getCustomers().size() << " capacity: " << tDST->getCapacity() << std::endl;
     if(tSRC== nullptr || !tSRC->isOpen() || tDST== nullptr || !tDST->isOpen()
        || tSRC->getCustomer(id) == nullptr || tDST->getCustomers().size() >= tDST->getCapacity())
         BaseAction::error("Cannot move customer");
@@ -160,7 +160,7 @@ void PrintTrainerStatus::act(Studio &studio) {
     else
     {
         std::cout << "Trainer " << trainerId << " status: open" << std::endl;
-        std::cout << "Customers" << std::endl;
+        std::cout << "Customers:" << std::endl;
         std::vector<Customer*> customers = t->getCustomers();
         for(int i=0;i<customers.size();i++)
             std::cout << customers[i]->getId() << " " << customers[i]->getName() << std::endl;
@@ -168,7 +168,7 @@ void PrintTrainerStatus::act(Studio &studio) {
         std::vector<std::pair<int, Workout>> orders = t->getOrders();
         for(int i=0;i<orders.size();i++)
             std::cout << orders[i].second.getName() << " " << orders[i].second.getPrice() << " " << orders[i].first << std::endl;
-        std::cout << "Current Trainer’s Salary: " << t->getSalary() << std::endl;
+        std::cout << "Current Trainer's Salary: " << t->getSalary() << "NIS" << std::endl;
         complete();
     }
 

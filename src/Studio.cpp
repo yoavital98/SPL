@@ -60,6 +60,7 @@ Studio::Studio(const std::string &configFilePath)
 void Studio::start() { open = true;
     std::cout << "Studio is now open!" << std::endl;
     std::string  input="";
+    int customerID = 0;
     while(open)
     {
         std::getline(std::cin, input);
@@ -75,13 +76,14 @@ void Studio::start() { open = true;
             std::vector<Customer*> customers;
             for(int i=0;i<words.size()-2;i++) {
                 if(words[i+2].substr(words[i+2].length()-3,3) == "swt")
-                    customers.push_back(new SweatyCustomer(words[i+2].substr(0, words[i+2].length()-4), i));
+                    customers.push_back(new SweatyCustomer(words[i+2].substr(0, words[i+2].length()-4), customerID));
                 else if(words[i+2].substr(words[i+2].length()-3,3) == "chp")
-                    customers.push_back(new CheapCustomer(words[i+2].substr(0, words[i+2].length()-4), i));
+                    customers.push_back(new CheapCustomer(words[i+2].substr(0, words[i+2].length()-4), customerID));
                 else if(words[i+2].substr(words[i+2].length()-3,3) == "fbd")
-                    customers.push_back(new FullBodyCustomer(words[i+2].substr(0, words[i+2].length()-4), i));
+                    customers.push_back(new FullBodyCustomer(words[i+2].substr(0, words[i+2].length()-4), customerID));
                 else if(words[i+2].substr(words[i+2].length()-3,3) == "mcl")
-                    customers.push_back(new HeavyMuscleCustomer(words[i+2].substr(0,words[i+2].length()-4), i));
+                    customers.push_back(new HeavyMuscleCustomer(words[i+2].substr(0,words[i+2].length()-4), customerID));
+                customerID++;
             }
             OpenTrainer actionOpenTrainer(stoi(words[1]), customers);
             actionOpenTrainer.act(*this);
@@ -107,7 +109,7 @@ void Studio::start() { open = true;
         }
         if(words[0] == "move")
         {
-            MoveCustomer actionMoveCustomer(stoi(words[2]),stoi(words[3]),stoi(words[4]));
+            MoveCustomer actionMoveCustomer(stoi(words[1]),stoi(words[2]),stoi(words[3]));
             actionMoveCustomer.act(*this);
             CloseStudio();
             actionsLog.insert(actionsLog.begin(), &actionMoveCustomer);

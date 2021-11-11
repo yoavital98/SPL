@@ -13,6 +13,9 @@ this ->~Workout();
 new (this) Workout(other);
 return *this;
 }
+bool Workout::operator < (const Workout &other) const {
+    return price < other.price;
+}
 /*
 const int id;
 const std::string name;
