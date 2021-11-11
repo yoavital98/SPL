@@ -4,23 +4,35 @@
 Trainer::Trainer(int t_capacity) : capacity(t_capacity), open(false) {}
 //Destructor
 Trainer::~Trainer() {
-
+    clear();
 }
 //Copy Constructor
-Trainer::Trainer(const Trainer &other){
-
+Trainer::Trainer(const Trainer &other) : capacity(other.capacity), open(other.open){
+    copy(other);
 }
 //Move Constructor
-Trainer::Trainer(Trainer &&other){
-
+Trainer::Trainer(Trainer &&other) : capacity(other.capacity), open(other.open){
+    copy(other);
+    for(int i = 0; i < other.customersList.size(); i++){
+        other.customersList[i] = nullptr;
+    }
 }
 //Copy Assignment
 Trainer& Trainer::operator=(const Trainer &other){
-
+    if(this == &other)
+        return *this;
+    clear();
+    capacity = other.capacity;
+    open = other.open;
+    copy(other);
 }
 //Move Assignment
 Trainer& Trainer::operator=(Trainer &&other){
+    if (this != &other)
+    {
 
+    }
+    return *this;
 }
 
 int Trainer::getCapacity() const
@@ -88,6 +100,37 @@ int Trainer::getSalary()
 
 bool Trainer::isOpen()
 {return open;}
+
+void Trainer::clear(){
+    for(int i=0; i < customersList.size(); i++){
+        if(customersList[i]){
+            delete customersList[i];
+            customersList[i] = nullptr;
+        }
+    }
+    capacity = 0;
+    open = false;
+    orderList.clear();
+}
+
+void Trainer::copy(const Trainer &other){
+    for(int i = 0; i < other.customersList.size(); i++){
+        std::string type = customersList[i]->getType();
+        Customer* otherCustomer;
+        if(type == "swt")
+            otherCustomer = new SweatyCustomer(customersList[i]->getName(), customersList[i]->getId());
+        else if(type == "chp")
+            otherCustomer = new CheapCustomer(customersList[i]->getName(), customersList[i]->getId());
+        else if(type == "mcl")
+            otherCustomer = new HeavyMuscleCustomer(customersList[i]->getName(), customersList[i]->getId());
+        else if(type == "fbd")
+            otherCustomer = new FullBodyCustomer(customersList[i]->getName(), customersList[i]->getId());
+        customersList.push_back(otherCustomer);
+    }
+    for(int i = 0; i < other.orderList.size(); i++){
+        orderList.push_back(other.orderList[i]);
+    }
+}
 
 /*
 int capacity;
