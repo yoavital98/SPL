@@ -30,7 +30,13 @@ Trainer& Trainer::operator=(const Trainer &other){
 Trainer& Trainer::operator=(Trainer &&other){
     if (this != &other)
     {
-
+        clear();
+        capacity = other.capacity;
+        open = other.open;
+        copy(other);
+        for(int i = 0; i < other.customersList.size(); i++){
+            other.customersList[i] = nullptr;
+        }
     }
     return *this;
 }
