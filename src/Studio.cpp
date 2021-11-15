@@ -57,23 +57,77 @@ Studio::Studio(const std::string &configFilePath)
 
 //Destructor
 Studio::~Studio() {
-
+    clear();
 }
 //Copy Constructor
-Studio::Studio(const Studio &other){
-
+Studio::Studio(const Studio &other): workout_options(other.workout_options), open(other.open){
+    copy(other);
 }
 //Move Constructor
-Studio::Studio(Studio &&other){
-
+Studio::Studio(Studio &&other) : workout_options(other.workout_options), open(other.open){
+    copy(other);
+    for(Trainer* trainer: other.trainers)
+    {
+        trainer = nullptr;
+    }
+    for(BaseAction* baseAction: other.actionsLog)
+    {
+        baseAction = nullptr;
+    }
 }
 //Copy Assignment
 Studio& Studio::operator=(const Studio &other){
-
+    if(this == &other)
+        return *this;
+    clear();
+    workout_options = other.workout_options;
+    open = other.open;
+    copy(other);
 }
 //Move Assignment
 Studio& Studio::operator=(Studio &&other){
-
+    if (this != &other)
+    {
+        clear();
+        open = other.open;
+        copy(other);
+        workout_options = other.workout_options;
+        for(Trainer* trainer: other.trainers)
+        {
+            trainer = nullptr;
+        }
+        for(BaseAction* baseAction: other.actionsLog)
+        {
+            baseAction = nullptr;
+        }
+    }
+    return *this;
+}
+void Studio::clear() {
+    for(Trainer* trainer: trainers)
+    {
+        if(trainer)
+        {
+            delete trainer;
+            trainer = nullptr;
+        }
+    }
+    for(BaseAction* baseAction: actionsLog)
+    {
+        if(baseAction)
+        {
+            delete baseAction;
+            baseAction = nullptr;
+        }
+    }
+}
+void Studio::copy(const Studio &other) {
+    for(Trainer *t : other.trainers){
+        trainers.push_back(new Trainer(*t));
+    }
+    for(BaseAction* baseAction : other.actionsLog){
+        actionsLog.push_back(baseAction);
+    }
 }
 void Studio::start() { open = true;
     std::cout << "Studio is now open!" << std::endl;

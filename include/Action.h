@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include "Customer.h"
-
+#include "Action.h"
 enum ActionStatus{
     COMPLETED, ERROR
 };
@@ -18,6 +18,7 @@ public:
     ActionStatus getStatus() const;
     virtual void act(Studio& studio)=0;
     virtual std::string toString() const=0;
+    virtual std::string printMe(PrintActionsLog& printActionsLog) = 0;
 protected:
     void complete();
     void error(std::string errorMsg);
@@ -27,6 +28,24 @@ private:
     ActionStatus status;
 };
 
+class PrintActionsLog : public BaseAction {
+public:
+    PrintActionsLog();
+    void act(Studio &studio);
+    std::string toString() const;
+    std::string printMe(PrintActionsLog& printActionsLog);
+    std::string yallaPrintKvar(OpenTrainer& openTrainer);
+    std::string yallaPrintKvar(Order& order);
+    std::string yallaPrintKvar(MoveCustomer& moveCustomer);
+    std::string yallaPrintKvar(Close& close);
+    std::string yallaPrintKvar(CloseAll& closeAll);
+    std::string yallaPrintKvar(PrintWorkoutOptions& printWorkoutOptions);
+    std::string yallaPrintKvar(PrintTrainerStatus* printTrainerStatus);
+    std::string yallaPrintKvar(PrintActionsLog& printActionsLog);
+    std::string yallaPrintKvar(BackupStudio& backupStudio);
+    std::string yallaPrintKvar(RestoreStudio& restoreStudio);
+private:
+};
 
 class OpenTrainer : public BaseAction {
 public:
@@ -45,9 +64,11 @@ public:
     //========================================
     void act(Studio &studio);
     std::string toString() const;
-private:
+    private:
 	const int trainerId;
 	std::vector<Customer *> customers;
+    std::string printMe(PrintActionsLog &printActionsLog);
+    void clear();
 };
 
 
@@ -56,6 +77,7 @@ public:
     Order(int id);
     void act(Studio &studio);
     std::string toString() const;
+    std::string printMe(PrintActionsLog& printActionsLog);
 private:
     const int trainerId;
 };
@@ -66,6 +88,7 @@ public:
     MoveCustomer(int src, int dst, int customerId);
     void act(Studio &studio);
     std::string toString() const;
+    std::string printMe(PrintActionsLog& printActionsLog);
 private:
     const int srcTrainer;
     const int dstTrainer;
@@ -78,6 +101,7 @@ public:
     Close(int id);
     void act(Studio &studio);
     std::string toString() const;
+    std::string printMe(PrintActionsLog& printActionsLog);
 private:
     const int trainerId;
 };
@@ -88,6 +112,7 @@ public:
     CloseAll();
     void act(Studio &studio);
     std::string toString() const;
+    std::string printMe(PrintActionsLog& printActionsLog);
 private:
 };
 
@@ -97,6 +122,7 @@ public:
     PrintWorkoutOptions();
     void act(Studio &studio);
     std::string toString() const;
+    std::string printMe(PrintActionsLog& printActionsLog);
 private:
 };
 
@@ -106,18 +132,13 @@ public:
     PrintTrainerStatus(int id);
     void act(Studio &studio);
     std::string toString() const;
+    std::string printMe(PrintActionsLog& printActionsLog);
 private:
     const int trainerId;
 };
 
 
-class PrintActionsLog : public BaseAction {
-public:
-    PrintActionsLog();
-    void act(Studio &studio);
-    std::string toString() const;
-private:
-};
+
 
 
 class BackupStudio : public BaseAction {
@@ -125,6 +146,7 @@ public:
     BackupStudio();
     void act(Studio &studio);
     std::string toString() const;
+    std::string printMe(PrintActionsLog& printActionsLog);
 private:
 };
 
@@ -134,7 +156,7 @@ public:
     RestoreStudio();
     void act(Studio &studio);
     std::string toString() const;
-
+    std::string printMe(PrintActionsLog& printActionsLog);
 };
 
 

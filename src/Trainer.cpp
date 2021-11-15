@@ -77,10 +77,17 @@ std::vector<OrderPair>& Trainer::getOrders()
 
 void Trainer::order(const int customer_id, const std::vector<int> workout_ids, const std::vector<Workout>& workout_options)
 {
+    std::vector<int> ids;
     for(int i = 0; i < customersList.size(); i++) {
-        if (customersList[i]->getId() == customer_id)
-            customersList[i]->order(workout_options);
-        break;
+        if (customersList[i]->getId() == customer_id) {
+            ids = customersList[i]->order(workout_options);
+            for(int j=0;j<ids.size();j++)
+            {
+                this->addOrder(OrderPair (customersList[i]->getId(), workout_options[ids[j]]));
+                std::cout << customersList[i]->toString() << " Is Doing " << workout_options[ids[j]].getName() << std::endl;
+            }
+            break;
+        }
     }
 }
 
@@ -120,21 +127,11 @@ void Trainer::clear(){
 }
 
 void Trainer::copy(const Trainer &other){
-    for(int i = 0; i < other.customersList.size(); i++){
-        std::string type = customersList[i]->getType();
-        Customer* otherCustomer;
-        if(type == "swt")
-            otherCustomer = new SweatyCustomer(customersList[i]->getName(), customersList[i]->getId());
-        else if(type == "chp")
-            otherCustomer = new CheapCustomer(customersList[i]->getName(), customersList[i]->getId());
-        else if(type == "mcl")
-            otherCustomer = new HeavyMuscleCustomer(customersList[i]->getName(), customersList[i]->getId());
-        else if(type == "fbd")
-            otherCustomer = new FullBodyCustomer(customersList[i]->getName(), customersList[i]->getId());
-        customersList.push_back(otherCustomer);
+    for(Customer *c : other.customersList){
+        customersList.push_back(c->getCustomer());
     }
-    for(int i = 0; i < other.orderList.size(); i++){
-        orderList.push_back(other.orderList[i]);
+    for(OrderPair order : other.orderList){
+        orderList.push_back(order);
     }
 }
 
