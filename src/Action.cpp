@@ -73,9 +73,9 @@ void OpenTrainer::act(Studio &studio) {
         t->openTrainer();
     }
 }
-std::string OpenTrainer::printMe(PrintActionsLog &printActionsLog) {
+/*std::string OpenTrainer::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
-}
+}*/
 
 std::string OpenTrainer::toString() const {
     std::string customersName="";
@@ -86,6 +86,15 @@ std::string OpenTrainer::toString() const {
     if(getStatus() == COMPLETED)
         return "open " + std::to_string(trainerId) + " " + customersName +" Completed";
     return "open " + std::to_string(trainerId) + " " + customersName+ " "+getErrorMsg();
+}
+BaseAction* OpenTrainer::getAction()
+{
+    std::vector<Customer*> customerslist;
+    for(Customer *c: customers)
+    {
+        customerslist.push_back(c->getCustomer());
+    }
+    return new OpenTrainer(this->trainerId,customerslist);
 }
 //==============================================================================================
 //==============================================================================================
@@ -103,13 +112,17 @@ void Order::act(Studio &studio) {
         complete();
     }
 }
-std::string Order::printMe(PrintActionsLog &printActionsLog) {
+/*std::string Order::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
-}
+}*/
 std::string Order::toString() const {
     if(getStatus() == COMPLETED)
         return "Order " + std::to_string(trainerId) + " Completed";
     return "Order " + std::to_string(trainerId) + " " + getErrorMsg();
+}
+BaseAction* Order::getAction()
+{
+    return new Order(this->trainerId);
 }
 //==============================================================================================
 //==============================================================================================
@@ -136,13 +149,17 @@ void MoveCustomer::act(Studio &studio) {
         complete();
     }
 }
-std::string MoveCustomer::printMe(PrintActionsLog &printActionsLog) {
+/*std::string MoveCustomer::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
-}
+}*/
 std::string MoveCustomer::toString() const {
     if(getStatus() == COMPLETED)
         return "move " + std::to_string(srcTrainer) + " " + std::to_string(dstTrainer) + " " + std::to_string(id) + " Completed";
     return "move " + std::to_string(srcTrainer) + " " + std::to_string(dstTrainer) + " " + std::to_string(id) + " " + getErrorMsg();
+}
+BaseAction* MoveCustomer::getAction()
+{
+    return new MoveCustomer(this->srcTrainer, this->dstTrainer, this->id);
 }
 //==============================================================================================
 //==============================================================================================
@@ -159,13 +176,17 @@ void Close::act(Studio &studio) {
         complete();
     }
 }
-std::string Close::printMe(PrintActionsLog &printActionsLog) {
+/*std::string Close::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
-}
+}*/
 std::string Close::toString() const {
     if(getStatus() == COMPLETED)
         return "Close " + std::to_string(trainerId) + " Completed";
     return "Close " + std::to_string(trainerId) + " "+ getErrorMsg();
+}
+BaseAction* Close::getAction()
+{
+    return new Close(this->trainerId);
 }
 //==============================================================================================
 //==============================================================================================
@@ -178,13 +199,17 @@ void CloseAll::act(Studio &studio){
     }
     complete();
 }
-std::string CloseAll::printMe(PrintActionsLog &printActionsLog) {
+/*std::string CloseAll::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
-}
+}*/
 std::string CloseAll::toString() const {
     if(getStatus() == COMPLETED)
         return "CloseAll Completed";
     return "CloseAll " + getErrorMsg();
+}
+BaseAction* CloseAll::getAction()
+{
+    return new CloseAll();
 }
 //==============================================================================================
 //==============================================================================================
@@ -198,13 +223,17 @@ void PrintWorkoutOptions::act(Studio &studio) {
     }
     complete();
 }
-std::string PrintWorkoutOptions::printMe(PrintActionsLog &printActionsLog) {
+/*std::string PrintWorkoutOptions::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
-}
+}*/
 std::string PrintWorkoutOptions::toString() const {
     if(getStatus() == COMPLETED)
         return "PrintWorkoutOptions Completed";
     return "PrintWorkoutOptions " + getErrorMsg();
+}
+BaseAction* PrintWorkoutOptions::getAction()
+{
+    return new PrintWorkoutOptions();
 }
 //==============================================================================================
 //==============================================================================================
@@ -230,13 +259,17 @@ void PrintTrainerStatus::act(Studio &studio) {
     }
 
 }
-std::string PrintTrainerStatus::printMe(PrintActionsLog &printActionsLog) {
+/*std::string PrintTrainerStatus::printMe(PrintActionsLog &printActionsLog) {
     return printActionsLog.yallaPrintKvar(this);
-}
+}*/
 std::string PrintTrainerStatus::toString() const {
     if(getStatus() == COMPLETED)
         return "PrintTrainerStatus Completed";
     return "PrintTrainerStatus " + getErrorMsg();
+}
+BaseAction* PrintTrainerStatus::getAction()
+{
+    return new PrintTrainerStatus(this->trainerId);
 }
 //==============================================================================================
 //==============================================================================================
@@ -245,9 +278,9 @@ PrintActionsLog::PrintActionsLog() { }
 void PrintActionsLog::act(Studio &studio) {
     std::vector<BaseAction*> actionsLog = studio.getActionsLog();
     for(BaseAction* baseAction: actionsLog)
-        std::cout << baseAction->printMe(this) << std::endl;
+        std::cout << baseAction->toString() << std::endl;
 }
-std::string PrintActionsLog::printMe(PrintActionsLog &printActionsLog) {
+/*std::string PrintActionsLog::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
 }
 std::string yallaPrintKvar(OpenTrainer& openTrainer){ return openTrainer.toString(); }
@@ -259,26 +292,38 @@ std::string yallaPrintKvar(PrintWorkoutOptions& printWorkoutOptions){ return pri
 std::string yallaPrintKvar(PrintTrainerStatus *printTrainerStatus){ return printTrainerStatus.toString(); }
 std::string yallaPrintKvar(PrintActionsLog& printActionsLog){ return printActionsLog.toString(); }
 std::string yallaPrintKvar(BackupStudio& backupStudio){ return backupStudio.toString(); }
-std::string yallaPrintKvar(RestoreStudio& restoreStudio){ return restoreStudio.toString(); }
+std::string yallaPrintKvar(RestoreStudio& restoreStudio){ return restoreStudio.toString(); }*/
 std::string PrintActionsLog::toString() const {
     if(getStatus() == COMPLETED)
         return "PrintActionsLog Completed";
     return "PrintActionsLog " + getErrorMsg();
+}
+BaseAction* PrintActionsLog::getAction()
+{
+    return new PrintActionsLog();
 }
 //==============================================================================================
 //==============================================================================================
 //Backup Studio
 BackupStudio::BackupStudio() { }
 void BackupStudio::act(Studio &studio){
-    backup(Studio(studio));
+    backup = new Studio(studio);
+    std::cout << "yoavchuk" << std::endl;
+    std::vector<Workout> workouts = backup->getWorkoutOptions();
+    for(Workout workout: workouts)
+        std::cout << workout.getName() << std::endl;
 }
-std::string BackupStudio::printMe(PrintActionsLog &printActionsLog) {
+/*std::string BackupStudio::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
-}
+}*/
 std::string BackupStudio::toString() const {
     if(getStatus() == COMPLETED)
         return "BackupStudio Completed";
     return "BackupStudio " + getErrorMsg();
+}
+BaseAction* BackupStudio::getAction()
+{
+    return new BackupStudio();
 }
 //==============================================================================================
 //==============================================================================================
@@ -288,14 +333,18 @@ void RestoreStudio::act(Studio &studio) {
     if(backup == nullptr)
         BaseAction::error("No backup available");
     else{
-        studio = *backup;
+        studio = Studio(*backup);
     }
 }
-std::string RestoreStudio::printMe(PrintActionsLog &printActionsLog) {
+/*std::string RestoreStudio::printMe(PrintActionsLog &printActionsLog) {
     printActionsLog.yallaPrintKvar(this);
-}
+}*/
 std::string RestoreStudio::toString() const {
     if(getStatus() == COMPLETED)
         return "RestoreStudio Completed";
     return "RestoreStudio " + getErrorMsg();
+}
+BaseAction* RestoreStudio::getAction()
+{
+    return new RestoreStudio();
 }

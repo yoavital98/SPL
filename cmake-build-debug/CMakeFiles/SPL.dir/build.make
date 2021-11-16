@@ -65,10 +65,24 @@ include CMakeFiles/SPL.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/SPL.dir/flags.make
 
+CMakeFiles/SPL.dir/src/main.cpp.obj: CMakeFiles/SPL.dir/flags.make
+CMakeFiles/SPL.dir/src/main.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
+CMakeFiles/SPL.dir/src/main.cpp.obj: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SPL.dir/src/main.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\main.cpp.obj -c C:\Users\User\Desktop\SPL\src\main.cpp
+
+CMakeFiles/SPL.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/src/main.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Desktop\SPL\src\main.cpp > CMakeFiles\SPL.dir\src\main.cpp.i
+
+CMakeFiles/SPL.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/main.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\main.cpp -o CMakeFiles\SPL.dir\src\main.cpp.s
+
 CMakeFiles/SPL.dir/src/Action.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Action.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
 CMakeFiles/SPL.dir/src/Action.cpp.obj: ../src/Action.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SPL.dir/src/Action.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SPL.dir/src/Action.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Action.cpp.obj -c C:\Users\User\Desktop\SPL\src\Action.cpp
 
 CMakeFiles/SPL.dir/src/Action.cpp.i: cmake_force
@@ -82,7 +96,7 @@ CMakeFiles/SPL.dir/src/Action.cpp.s: cmake_force
 CMakeFiles/SPL.dir/src/Customer.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Customer.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
 CMakeFiles/SPL.dir/src/Customer.cpp.obj: ../src/Customer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SPL.dir/src/Customer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SPL.dir/src/Customer.cpp.obj"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\Customer.cpp.obj -c C:\Users\User\Desktop\SPL\src\Customer.cpp
 
 CMakeFiles/SPL.dir/src/Customer.cpp.i: cmake_force
@@ -92,20 +106,6 @@ CMakeFiles/SPL.dir/src/Customer.cpp.i: cmake_force
 CMakeFiles/SPL.dir/src/Customer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/Customer.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\Customer.cpp -o CMakeFiles\SPL.dir\src\Customer.cpp.s
-
-CMakeFiles/SPL.dir/src/main.cpp.obj: CMakeFiles/SPL.dir/flags.make
-CMakeFiles/SPL.dir/src/main.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
-CMakeFiles/SPL.dir/src/main.cpp.obj: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\User\Desktop\SPL\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SPL.dir/src/main.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\SPL.dir\src\main.cpp.obj -c C:\Users\User\Desktop\SPL\src\main.cpp
-
-CMakeFiles/SPL.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SPL.dir/src/main.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\User\Desktop\SPL\src\main.cpp > CMakeFiles\SPL.dir\src\main.cpp.i
-
-CMakeFiles/SPL.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SPL.dir/src/main.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\User\Desktop\SPL\src\main.cpp -o CMakeFiles\SPL.dir\src\main.cpp.s
 
 CMakeFiles/SPL.dir/src/Studio.cpp.obj: CMakeFiles/SPL.dir/flags.make
 CMakeFiles/SPL.dir/src/Studio.cpp.obj: CMakeFiles/SPL.dir/includes_CXX.rsp
@@ -151,9 +151,9 @@ CMakeFiles/SPL.dir/src/Workout.cpp.s: cmake_force
 
 # Object files for target SPL
 SPL_OBJECTS = \
+"CMakeFiles/SPL.dir/src/main.cpp.obj" \
 "CMakeFiles/SPL.dir/src/Action.cpp.obj" \
 "CMakeFiles/SPL.dir/src/Customer.cpp.obj" \
-"CMakeFiles/SPL.dir/src/main.cpp.obj" \
 "CMakeFiles/SPL.dir/src/Studio.cpp.obj" \
 "CMakeFiles/SPL.dir/src/Trainer.cpp.obj" \
 "CMakeFiles/SPL.dir/src/Workout.cpp.obj"
@@ -161,9 +161,9 @@ SPL_OBJECTS = \
 # External object files for target SPL
 SPL_EXTERNAL_OBJECTS =
 
+SPL.exe: CMakeFiles/SPL.dir/src/main.cpp.obj
 SPL.exe: CMakeFiles/SPL.dir/src/Action.cpp.obj
 SPL.exe: CMakeFiles/SPL.dir/src/Customer.cpp.obj
-SPL.exe: CMakeFiles/SPL.dir/src/main.cpp.obj
 SPL.exe: CMakeFiles/SPL.dir/src/Studio.cpp.obj
 SPL.exe: CMakeFiles/SPL.dir/src/Trainer.cpp.obj
 SPL.exe: CMakeFiles/SPL.dir/src/Workout.cpp.obj

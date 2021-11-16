@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(include)
 
-add_executable(SPL
+add_executable(SPL src/main.cpp
         include/Action.h
         include/Customer.h
         include/Studio.h
@@ -13,7 +13,6 @@ add_executable(SPL
         include/Workout.h
         src/Action.cpp
         src/Customer.cpp
-        src/main.cpp
         src/Studio.cpp
         src/Trainer.cpp
         src/Workout.cpp)

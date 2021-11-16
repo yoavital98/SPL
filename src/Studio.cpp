@@ -90,15 +90,16 @@ Studio& Studio::operator=(Studio &&other){
     {
         clear();
         open = other.open;
-        copy(other);
         workout_options = other.workout_options;
-        for(Trainer* trainer: other.trainers)
+        for(int i=0;i<other.trainers.size();i++)
         {
-            trainer = nullptr;
+            trainers.push_back(other.trainers[i]);
+            other.trainers[i] = nullptr;
         }
-        for(BaseAction* baseAction: other.actionsLog)
+        for(int i=0;i<other.actionsLog.size();i++)
         {
-            baseAction = nullptr;
+            actionsLog.push_back(actionsLog[i]);
+            actionsLog[i] = nullptr;
         }
     }
     return *this;
@@ -120,13 +121,17 @@ void Studio::clear() {
             baseAction = nullptr;
         }
     }
+    open = false;
+    actionsLog.clear();
+    trainers.clear();
+    workout_options.clear();
 }
 void Studio::copy(const Studio &other) {
     for(Trainer *t : other.trainers){
         trainers.push_back(new Trainer(*t));
     }
     for(BaseAction* baseAction : other.actionsLog){
-        actionsLog.push_back(baseAction);
+        actionsLog.push_back(baseAction->getAction());
     }
 }
 void Studio::start() { open = true;

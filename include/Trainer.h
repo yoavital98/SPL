@@ -42,6 +42,7 @@ private:
     std::vector<OrderPair> orderList; //A list of pairs for each order for the trainer - (customer_id, Workout)
     void clear();
     void copy(const Trainer &other);
+    void move(Trainer &other);
 };
 
 

@@ -12,7 +12,7 @@ Trainer::Trainer(const Trainer &other) : capacity(other.capacity), open(other.op
 }
 //Move Constructor
 Trainer::Trainer(Trainer &&other) : capacity(other.capacity), open(other.open){
-    copy(other);
+    move(other);
     for(int i = 0; i < other.customersList.size(); i++){
         other.customersList[i] = nullptr;
     }
@@ -33,10 +33,7 @@ Trainer& Trainer::operator=(Trainer &&other){
         clear();
         capacity = other.capacity;
         open = other.open;
-        copy(other);
-        for(int i = 0; i < other.customersList.size(); i++){
-            other.customersList[i] = nullptr;
-        }
+        move(other);
     }
     return *this;
 }
@@ -131,10 +128,19 @@ void Trainer::copy(const Trainer &other){
         customersList.push_back(c->getCustomer());
     }
     for(OrderPair order : other.orderList){
-        orderList.push_back(order);
+        orderList.push_back(OrderPair(order));
     }
 }
 
+void Trainer::move(Trainer &other){
+    for(int i = 0; i < other.customersList.size(); i++){
+        customersList.push_back(other.customersList[i]);
+        other.customersList[i] = nullptr;
+    }
+    for(OrderPair order : other.orderList){
+        orderList.push_back(order);
+    }
+}
 /*
 int capacity;
 bool open;
