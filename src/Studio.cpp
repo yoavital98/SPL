@@ -83,6 +83,7 @@ Studio& Studio::operator=(const Studio &other){
     workout_options = other.workout_options;
     open = other.open;
     copy(other);
+    return *this;
 }
 //Move Assignment
 Studio& Studio::operator=(Studio &&other){
@@ -134,20 +135,13 @@ void Studio::copy(const Studio &other) {
         actionsLog.push_back(baseAction->getAction());
     }
 }
-void Studio::start() { open = true;
+void Studio::start() {
+    open = true;
     std::cout << "Studio is now open!" << std::endl;
-    std::string  input="";
     int customerID = 0;
     while(open)
     {
-        std::getline(std::cin, input);
-        std::vector<std::string> words;
-        size_t index = 0;
-        while ((index = input.find(" ")) != std::string::npos) {
-            words.push_back(input.substr(0, index));
-            input.erase(0, index + 1);
-        }
-        words.push_back((input));
+        std::vector<std::string> words = getInput();
         makeAction(words, customerID);
     }
 }
@@ -162,7 +156,19 @@ Trainer* Studio::getTrainer(int tid) {
 }
 const std::vector<BaseAction*>& Studio::getActionsLog() const { return actionsLog; } // Return a  return actionsLog; to the history of actions
 std::vector<Workout>& Studio::getWorkoutOptions() { return workout_options; }
-
+std::vector<std::string> Studio::getInput()
+{
+    std::string  input= "";
+    std::getline(std::cin, input);
+    std::vector<std::string> words;
+    size_t index = 0;
+    while ((index = input.find(" ")) != std::string::npos) {
+        words.push_back(input.substr(0, index));
+        input.erase(0, index + 1);
+    }
+    words.push_back((input));
+    return words;
+}
 void Studio::makeAction(std::vector<std::string> &inputWords, int& customerID) {
     if(inputWords[0] == "open")
     {

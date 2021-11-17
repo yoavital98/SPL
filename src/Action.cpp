@@ -57,6 +57,7 @@ void OpenTrainer::clear() {
             c = nullptr;
         }
     }
+    customers.clear();
 }
 void OpenTrainer::act(Studio &studio) {
     Trainer* t = studio.getTrainer(trainerId);
@@ -182,8 +183,11 @@ BaseAction* Close::getAction()
 CloseAll::CloseAll() { }
 void CloseAll::act(Studio &studio){
     for (int i = 0; i < studio.getNumOfTrainers(); i++) {
-        Close* closingTrainer = new Close(i);
-        closingTrainer->act(studio);
+        Trainer *t = studio.getTrainer(i);
+        if(t->isOpen()) {
+            Close *closingTrainer = new Close(i);
+            closingTrainer->act(studio);
+        }
     }
     complete();
 }

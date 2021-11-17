@@ -13,9 +13,6 @@ Trainer::Trainer(const Trainer &other) : capacity(other.capacity), open(other.op
 //Move Constructor
 Trainer::Trainer(Trainer &&other) : capacity(other.capacity), open(other.open){
     move(other);
-    for(int i = 0; i < other.customersList.size(); i++){
-        other.customersList[i] = nullptr;
-    }
 }
 //Copy Assignment
 Trainer& Trainer::operator=(const Trainer &other){
@@ -122,6 +119,7 @@ void Trainer::clear(){
     capacity = 0;
     open = false;
     orderList.clear();
+    customersList.clear();
 }
 
 void Trainer::copy(const Trainer &other){

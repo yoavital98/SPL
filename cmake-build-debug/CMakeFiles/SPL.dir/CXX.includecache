@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+../include/Action.h
+string
+-
+iostream
+-
+Customer.h
+../include/Customer.h
+Action.h
+../include/Action.h
+
 ../include/Customer.h
 vector
 -
@@ -13,6 +23,16 @@ string
 -
 Workout.h
 ../include/Workout.h
+
+../include/Studio.h
+vector
+-
+string
+-
+Trainer.h
+../include/Trainer.h
+Action.h
+../include/Action.h
 
 ../include/Trainer.h
 vector
@@ -26,7 +46,9 @@ Customer.h
 string
 -
 
-C:/Users/User/Desktop/SPL/src/Trainer.cpp
-Trainer.h
-C:/Users/User/Desktop/SPL/src/Trainer.h
+C:/Users/User/Desktop/SPL/src/Studio.cpp
+Studio.h
+C:/Users/User/Desktop/SPL/src/Studio.h
+fstream
+-
 
