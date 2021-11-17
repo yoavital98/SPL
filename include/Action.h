@@ -19,7 +19,6 @@ public:
     virtual void act(Studio& studio)=0;
     virtual std::string toString() const=0;
     virtual BaseAction* getAction() = 0;
-/*    virtual std::string printMe(PrintActionsLog& printActionsLog) = 0;*/
 protected:
     void complete();
     void error(std::string errorMsg);
@@ -35,17 +34,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*    std::string printMe(PrintActionsLog& printActionsLog);
-    std::string yallaPrintKvar(OpenTrainer& openTrainer);
-    std::string yallaPrintKvar(Order& order);
-    std::string yallaPrintKvar(MoveCustomer& moveCustomer);
-    std::string yallaPrintKvar(Close& close);
-    std::string yallaPrintKvar(CloseAll& closeAll);
-    std::string yallaPrintKvar(PrintWorkoutOptions& printWorkoutOptions);
-    std::string yallaPrintKvar(PrintTrainerStatus* printTrainerStatus);
-    std::string yallaPrintKvar(PrintActionsLog& printActionsLog);
-    std::string yallaPrintKvar(BackupStudio& backupStudio);
-    std::string yallaPrintKvar(RestoreStudio& restoreStudio);*/
 private:
 };
 
@@ -70,7 +58,6 @@ public:
     private:
 	const int trainerId;
 	std::vector<Customer *> customers;
-/*    std::string printMe(PrintActionsLog &printActionsLog);*/
     void clear();
 };
 
@@ -81,7 +68,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*    std::string printMe(PrintActionsLog& printActionsLog);*/
 private:
     const int trainerId;
 };
@@ -93,7 +79,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*    std::string printMe(PrintActionsLog& printActionsLog);*/
 private:
     const int srcTrainer;
     const int dstTrainer;
@@ -107,7 +92,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*    std::string printMe(PrintActionsLog& printActionsLog);*/
 private:
     const int trainerId;
 };
@@ -119,9 +103,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*
-    std::string printMe(PrintActionsLog& printActionsLog);
-*/
 private:
 };
 
@@ -132,9 +113,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*
-    std::string printMe(PrintActionsLog& printActionsLog);
-*/
 private:
 };
 
@@ -145,9 +123,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*
-    std::string printMe(PrintActionsLog& printActionsLog);
-*/
 private:
     const int trainerId;
 };
@@ -162,9 +137,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*
-    std::string printMe(PrintActionsLog& printActionsLog);
-*/
 private:
 };
 
@@ -175,9 +147,6 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-/*
-    std::string printMe(PrintActionsLog& printActionsLog);
-*/
 };
 
 

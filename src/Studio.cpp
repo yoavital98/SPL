@@ -162,65 +162,65 @@ void Studio::start() { open = true;
                     customers.push_back(new HeavyMuscleCustomer(words[i+2].substr(0,words[i+2].length()-4), customerID));
                 customerID++;
             }
-            OpenTrainer actionOpenTrainer(stoi(words[1]), customers);
-            actionOpenTrainer.act(*this);
-            actionsLog.insert(actionsLog.begin(), &actionOpenTrainer);
+            OpenTrainer* actionOpenTrainer = new OpenTrainer(stoi(words[1]), customers);
+            actionOpenTrainer->act(*this);
+            actionsLog.insert(actionsLog.begin(), actionOpenTrainer);
         }
         if(words[0] == "order")
         {
-            Order actionOrder(stoi(words[1]));
-            actionOrder.act(*this);
-            actionsLog.insert(actionsLog.begin(), &actionOrder);
+            Order* actionOrder = new Order(stoi(words[1]));
+            actionOrder->act(*this);
+            actionsLog.insert(actionsLog.begin(), actionOrder);
         }
         if(words[0] == "close")
         {
-            Close actionClose(stoi(words[1]));
-            actionClose.act(*this);
-            actionsLog.insert(actionsLog.begin(), &actionClose);
+            Close* actionClose = new Close(stoi(words[1]));
+            actionClose->act(*this);
+            actionsLog.insert(actionsLog.begin(), actionClose);
         }
         if(words[0] == "status")
         {
-            PrintTrainerStatus actionPrintTrainerStatus(stoi(words[1]));
-            actionPrintTrainerStatus.act(*this);
-            actionsLog.insert(actionsLog.begin(), &actionPrintTrainerStatus);
+            PrintTrainerStatus* actionPrintTrainerStatus = new PrintTrainerStatus(stoi(words[1]));
+            actionPrintTrainerStatus->act(*this);
+            actionsLog.insert(actionsLog.begin(), actionPrintTrainerStatus);
         }
         if(words[0] == "move")
         {
-            MoveCustomer actionMoveCustomer(stoi(words[1]),stoi(words[2]),stoi(words[3]));
-            actionMoveCustomer.act(*this);
+            MoveCustomer* actionMoveCustomer = new MoveCustomer(stoi(words[1]),stoi(words[2]),stoi(words[3]));
+            actionMoveCustomer->act(*this);
             CloseStudio();
-            actionsLog.insert(actionsLog.begin(), &actionMoveCustomer);
+            actionsLog.insert(actionsLog.begin(), actionMoveCustomer);
         }
         if(words[0] == "closeall")
         {
-            CloseAll actionCloseAll;
-            actionCloseAll.act(*this);
+            CloseAll* actionCloseAll = new CloseAll();
+            actionCloseAll->act(*this);
             CloseStudio();
-            actionsLog.insert(actionsLog.begin(), &actionCloseAll);
+            actionsLog.insert(actionsLog.begin(), actionCloseAll);
         }
         if(words[0] == "backup")
         {
-            BackupStudio actionBackUp;
-            actionBackUp.act(*this);
-            actionsLog.insert(actionsLog.begin(), &actionBackUp);
+            BackupStudio* actionBackUp = new BackupStudio();
+            actionBackUp->act(*this);
+            actionsLog.insert(actionsLog.begin(), actionBackUp);
         }
         if(words[0] == "restore")
         {
-            RestoreStudio actionRestore;
-            actionRestore.act(*this);
-            actionsLog.insert(actionsLog.begin(), &actionRestore);
+            RestoreStudio* actionRestore = new RestoreStudio();
+            actionRestore->act(*this);
+            actionsLog.insert(actionsLog.begin(), actionRestore);
         }
         if(words[0] == "log")
         {
-            PrintActionsLog actionsLog1;
-            actionsLog1.act(*this);
-            actionsLog.insert(actionsLog.begin(), &actionsLog1);
+            PrintActionsLog* actionsLog1 = new PrintActionsLog();
+            actionsLog1->act(*this);
+            actionsLog.insert(actionsLog.begin(), actionsLog1);
         }
         if(words[0] == "workout_options")
         {
-            PrintWorkoutOptions actionsPrintWorkoutOptions;
-            actionsPrintWorkoutOptions.act(*this);
-            actionsLog.insert(actionsLog.begin(), &actionsPrintWorkoutOptions);
+            PrintWorkoutOptions* actionsPrintWorkoutOptions = new PrintWorkoutOptions();
+            actionsPrintWorkoutOptions->act(*this);
+            actionsLog.insert(actionsLog.begin(), actionsPrintWorkoutOptions);
         }
     }
 }
