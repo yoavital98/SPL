@@ -31,6 +31,7 @@ public:
     void CloseStudio();
 
 private:
+    void makeAction(std::vector<std::string> &inputWords, int &customerID);
     bool open;
     std::vector<Trainer*> trainers;
     std::vector<Workout> workout_options;

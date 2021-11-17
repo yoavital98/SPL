@@ -124,7 +124,6 @@ MoveCustomer::MoveCustomer(int src, int dst, int customerId) : srcTrainer(src), 
 void MoveCustomer::act(Studio &studio) {
     Trainer* tSRC = studio.getTrainer(srcTrainer);
     Trainer* tDST = studio.getTrainer(dstTrainer);
-    // std::cout << tSRC << " : tsrc is open: " << tSRC->isOpen() << " tDST : " << tDST << " tdst is open : " << tDST->isOpen() << "TSRC : " << tSRC->getCustomer(id) << " size : " << tDST->getCustomers().size() << " capacity: " << tDST->getCapacity() << std::endl;
     if(tSRC== nullptr || !tSRC->isOpen() || tDST== nullptr || !tDST->isOpen()
        || tSRC->getCustomer(id) == nullptr || tDST->getCustomers().size() >= tDST->getCapacity())
         BaseAction::error("Cannot move customer");

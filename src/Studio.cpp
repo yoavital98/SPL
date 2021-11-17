@@ -6,8 +6,7 @@
 Studio::Studio() : open(false) {}
 Studio::Studio(const std::string &configFilePath)
 {
-    open = false; //I think so
-    int x;
+    open = false;
     std::ifstream inFile;
     inFile.open(configFilePath);
     if (!inFile) {
@@ -16,7 +15,7 @@ Studio::Studio(const std::string &configFilePath)
     }
     std::string line;
     int lineCount = 0 ;
-    int workOutId = 0;
+    int workoutId = 0;
     while(getline(inFile, line)) {
         if(lineCount==4)
         {
@@ -48,8 +47,8 @@ Studio::Studio(const std::string &configFilePath)
                 workoutType = WorkoutType(MIXED);
             if(words[1] == "Cardio")
                 workoutType = WorkoutType(CARDIO);
-            workout_options.push_back(Workout(workOutId, words[0],stoi(words[2]),workoutType));
-            workOutId++;
+            workout_options.push_back(Workout(workoutId, words[0],stoi(words[2]),workoutType));
+            workoutId++;
         }
         lineCount++;
     }
@@ -65,14 +64,15 @@ Studio::Studio(const Studio &other): workout_options(other.workout_options), ope
 }
 //Move Constructor
 Studio::Studio(Studio &&other) : workout_options(other.workout_options), open(other.open){
-    copy(other);
-    for(Trainer* trainer: other.trainers)
+    for(int i=0;i<other.trainers.size();i++)
     {
-        trainer = nullptr;
+        trainers.push_back(other.trainers[i]);
+        other.trainers[i] = nullptr;
     }
-    for(BaseAction* baseAction: other.actionsLog)
+    for(int i=0;i<other.actionsLog.size();i++)
     {
-        baseAction = nullptr;
+        actionsLog.push_back(actionsLog[i]);
+        actionsLog[i] = nullptr;
     }
 }
 //Copy Assignment
@@ -148,80 +148,7 @@ void Studio::start() { open = true;
             input.erase(0, index + 1);
         }
         words.push_back((input));
-        if(words[0] == "open")
-        {
-            std::vector<Customer*> customers;
-            for(int i=0;i<words.size()-2;i++) {
-                if(words[i+2].substr(words[i+2].length()-3,3) == "swt")
-                    customers.push_back(new SweatyCustomer(words[i+2].substr(0, words[i+2].length()-4), customerID));
-                else if(words[i+2].substr(words[i+2].length()-3,3) == "chp")
-                    customers.push_back(new CheapCustomer(words[i+2].substr(0, words[i+2].length()-4), customerID));
-                else if(words[i+2].substr(words[i+2].length()-3,3) == "fbd")
-                    customers.push_back(new FullBodyCustomer(words[i+2].substr(0, words[i+2].length()-4), customerID));
-                else if(words[i+2].substr(words[i+2].length()-3,3) == "mcl")
-                    customers.push_back(new HeavyMuscleCustomer(words[i+2].substr(0,words[i+2].length()-4), customerID));
-                customerID++;
-            }
-            OpenTrainer* actionOpenTrainer = new OpenTrainer(stoi(words[1]), customers);
-            actionOpenTrainer->act(*this);
-            actionsLog.insert(actionsLog.begin(), actionOpenTrainer);
-        }
-        if(words[0] == "order")
-        {
-            Order* actionOrder = new Order(stoi(words[1]));
-            actionOrder->act(*this);
-            actionsLog.insert(actionsLog.begin(), actionOrder);
-        }
-        if(words[0] == "close")
-        {
-            Close* actionClose = new Close(stoi(words[1]));
-            actionClose->act(*this);
-            actionsLog.insert(actionsLog.begin(), actionClose);
-        }
-        if(words[0] == "status")
-        {
-            PrintTrainerStatus* actionPrintTrainerStatus = new PrintTrainerStatus(stoi(words[1]));
-            actionPrintTrainerStatus->act(*this);
-            actionsLog.insert(actionsLog.begin(), actionPrintTrainerStatus);
-        }
-        if(words[0] == "move")
-        {
-            MoveCustomer* actionMoveCustomer = new MoveCustomer(stoi(words[1]),stoi(words[2]),stoi(words[3]));
-            actionMoveCustomer->act(*this);
-            CloseStudio();
-            actionsLog.insert(actionsLog.begin(), actionMoveCustomer);
-        }
-        if(words[0] == "closeall")
-        {
-            CloseAll* actionCloseAll = new CloseAll();
-            actionCloseAll->act(*this);
-            CloseStudio();
-            actionsLog.insert(actionsLog.begin(), actionCloseAll);
-        }
-        if(words[0] == "backup")
-        {
-            BackupStudio* actionBackUp = new BackupStudio();
-            actionBackUp->act(*this);
-            actionsLog.insert(actionsLog.begin(), actionBackUp);
-        }
-        if(words[0] == "restore")
-        {
-            RestoreStudio* actionRestore = new RestoreStudio();
-            actionRestore->act(*this);
-            actionsLog.insert(actionsLog.begin(), actionRestore);
-        }
-        if(words[0] == "log")
-        {
-            PrintActionsLog* actionsLog1 = new PrintActionsLog();
-            actionsLog1->act(*this);
-            actionsLog.insert(actionsLog.begin(), actionsLog1);
-        }
-        if(words[0] == "workout_options")
-        {
-            PrintWorkoutOptions* actionsPrintWorkoutOptions = new PrintWorkoutOptions();
-            actionsPrintWorkoutOptions->act(*this);
-            actionsLog.insert(actionsLog.begin(), actionsPrintWorkoutOptions);
-        }
+        makeAction(words, customerID);
     }
 }
 void Studio::CloseStudio() {
@@ -236,7 +163,84 @@ Trainer* Studio::getTrainer(int tid) {
 const std::vector<BaseAction*>& Studio::getActionsLog() const { return actionsLog; } // Return a  return actionsLog; to the history of actions
 std::vector<Workout>& Studio::getWorkoutOptions() { return workout_options; }
 
+void Studio::makeAction(std::vector<std::string> &inputWords, int& customerID) {
+    if(inputWords[0] == "open")
+    {
+        std::vector<Customer*> customers;
+        for(int i=0;i<inputWords.size()-2;i++) {
+            if(inputWords[i+2].substr(inputWords[i+2].length()-3,3) == "swt")
+                customers.push_back(new SweatyCustomer(inputWords[i+2].substr(0, inputWords[i+2].length()-4), customerID));
+            else if(inputWords[i+2].substr(inputWords[i+2].length()-3,3) == "chp")
+                customers.push_back(new CheapCustomer(inputWords[i+2].substr(0, inputWords[i+2].length()-4), customerID));
+            else if(inputWords[i+2].substr(inputWords[i+2].length()-3,3) == "fbd")
+                customers.push_back(new FullBodyCustomer(inputWords[i+2].substr(0, inputWords[i+2].length()-4), customerID));
+            else if(inputWords[i+2].substr(inputWords[i+2].length()-3,3) == "mcl")
+                customers.push_back(new HeavyMuscleCustomer(inputWords[i+2].substr(0,inputWords[i+2].length()-4), customerID));
+            customerID++;
+        }
+        OpenTrainer* actionOpenTrainer = new OpenTrainer(stoi(inputWords[1]), customers);
+        actionOpenTrainer->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionOpenTrainer);
+    }
+    if(inputWords[0] == "order")
+    {
+        Order* actionOrder = new Order(stoi(inputWords[1]));
+        actionOrder->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionOrder);
+    }
+    if(inputWords[0] == "close")
+    {
+        Close* actionClose = new Close(stoi(inputWords[1]));
+        actionClose->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionClose);
+    }
+    if(inputWords[0] == "status")
+    {
+        PrintTrainerStatus* actionPrintTrainerStatus = new PrintTrainerStatus(stoi(inputWords[1]));
+        actionPrintTrainerStatus->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionPrintTrainerStatus);
+    }
+    if(inputWords[0] == "move")
+    {
+        MoveCustomer* actionMoveCustomer = new MoveCustomer(stoi(inputWords[1]),stoi(inputWords[2]),stoi(inputWords[3]));
+        actionMoveCustomer->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionMoveCustomer);
+    }
+    if(inputWords[0] == "closeall")
+    {
+        CloseAll* actionCloseAll = new CloseAll();
+        actionCloseAll->act(*this);
+        CloseStudio();
+        actionsLog.insert(actionsLog.begin(), actionCloseAll);
+    }
+    if(inputWords[0] == "backup")
+    {
+        BackupStudio* actionBackUp = new BackupStudio();
+        actionBackUp->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionBackUp);
+    }
+    if(inputWords[0] == "restore")
+    {
+        RestoreStudio* actionRestore = new RestoreStudio();
+        actionRestore->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionRestore);
+    }
+    if(inputWords[0] == "log")
+    {
+        PrintActionsLog* actionsLog1 = new PrintActionsLog();
+        actionsLog1->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionsLog1);
+    }
+    if(inputWords[0] == "workout_options")
+    {
+        PrintWorkoutOptions* actionsPrintWorkoutOptions = new PrintWorkoutOptions();
+        actionsPrintWorkoutOptions->act(*this);
+        actionsLog.insert(actionsLog.begin(), actionsPrintWorkoutOptions);
+    }
+}
+
 /*
+fields:
 bool open;
 std::vector<Trainer*> trainers;
 std::vector<Workout> workout_options;

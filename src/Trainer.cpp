@@ -25,6 +25,7 @@ Trainer& Trainer::operator=(const Trainer &other){
     capacity = other.capacity;
     open = other.open;
     copy(other);
+    return *this;
 }
 //Move Assignment
 Trainer& Trainer::operator=(Trainer &&other){
@@ -48,9 +49,9 @@ void Trainer::addCustomer(Customer* customer)
 
 void Trainer::removeCustomer(int id) {
     customersList.erase(customersList.begin() + id);
-    for (int i = 0; i < orderList.size(); i++) {
+    for (int i = orderList.size(); i >= 0; i--) {
         if (orderList[i].first == id)
-            orderList.erase(orderList.begin() + 1);
+            orderList.erase(orderList.begin() + i);
     }
 }
 
