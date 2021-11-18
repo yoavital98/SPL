@@ -26,7 +26,7 @@ Studio::Studio(const std::string &configFilePath)
                 line.erase(0, index + 1);
             }
             words.push_back(line);
-            for(int i=0;i<words.size();i++)
+            for(long unsigned int i=0;i<words.size();i++)
             {
                 trainers.push_back(new Trainer(stoi(words[i])));
             }
@@ -59,17 +59,21 @@ Studio::~Studio() {
     clear();
 }
 //Copy Constructor
-Studio::Studio(const Studio &other): workout_options(other.workout_options), open(other.open){
+Studio::Studio(const Studio &other){
+    open = false;
+    workout_options = other.workout_options;
     copy(other);
 }
 //Move Constructor
-Studio::Studio(Studio &&other) : workout_options(other.workout_options), open(other.open){
-    for(int i=0;i<other.trainers.size();i++)
+Studio::Studio(Studio &&other){
+    open = other.open;
+    workout_options = other.workout_options;
+    for(long unsigned int i=0;i<other.trainers.size();i++)
     {
         trainers.push_back(other.trainers[i]);
         other.trainers[i] = nullptr;
     }
-    for(int i=0;i<other.actionsLog.size();i++)
+    for(long unsigned int i=0;i<other.actionsLog.size();i++)
     {
         actionsLog.push_back(actionsLog[i]);
         actionsLog[i] = nullptr;
@@ -92,12 +96,12 @@ Studio& Studio::operator=(Studio &&other){
         clear();
         open = other.open;
         workout_options = other.workout_options;
-        for(int i=0;i<other.trainers.size();i++)
+        for(long unsigned int i=0;i<other.trainers.size();i++)
         {
             trainers.push_back(other.trainers[i]);
             other.trainers[i] = nullptr;
         }
-        for(int i=0;i<other.actionsLog.size();i++)
+        for(long unsigned int i=0;i<other.actionsLog.size();i++)
         {
             actionsLog.push_back(actionsLog[i]);
             actionsLog[i] = nullptr;
@@ -150,7 +154,7 @@ void Studio::CloseStudio() {
 }
 int Studio::getNumOfTrainers() const { return trainers.size();}
 Trainer* Studio::getTrainer(int tid) {
-    if(tid >= trainers.size())
+    if(tid >= (int)trainers.size())
         return nullptr;
     return trainers[tid];
 }
@@ -173,7 +177,7 @@ void Studio::makeAction(std::vector<std::string> &inputWords, int& customerID) {
     if(inputWords[0] == "open")
     {
         std::vector<Customer*> customers;
-        for(int i=0;i<inputWords.size()-2;i++) {
+        for(long unsigned int i=0;i<inputWords.size()-2;i++) {
             if(inputWords[i+2].substr(inputWords[i+2].length()-3,3) == "swt")
                 customers.push_back(new SweatyCustomer(inputWords[i+2].substr(0, inputWords[i+2].length()-4), customerID));
             else if(inputWords[i+2].substr(inputWords[i+2].length()-3,3) == "chp")

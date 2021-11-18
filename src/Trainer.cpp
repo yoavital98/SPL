@@ -59,7 +59,7 @@ void Trainer::removeCustomers() {
 
 Customer* Trainer::getCustomer(int id)
 {
-    if(id >= customersList.size())
+    if(id >= (int)customersList.size())
         return nullptr;
     return customersList[id];
 }
@@ -73,10 +73,10 @@ std::vector<OrderPair>& Trainer::getOrders()
 void Trainer::order(const int customer_id, const std::vector<int> workout_ids, const std::vector<Workout>& workout_options)
 {
     std::vector<int> ids;
-    for(int i = 0; i < customersList.size(); i++) {
+    for(long unsigned int i = 0; i < customersList.size(); i++) {
         if (customersList[i]->getId() == customer_id) {
             ids = customersList[i]->order(workout_options);
-            for(int j=0;j<ids.size();j++)
+            for(long unsigned int j=0;j<ids.size();j++)
             {
                 this->addOrder(OrderPair (customersList[i]->getId(), workout_options[ids[j]]));
                 std::cout << customersList[i]->toString() << " Is Doing " << workout_options[ids[j]].getName() << std::endl;
@@ -100,7 +100,7 @@ void Trainer::closeTrainer()
 int Trainer::getSalary()
 {
     int sum = 0;
-    for(int i =0; i<orderList.size(); i++){
+    for(long unsigned int i =0; i<orderList.size(); i++){
         sum = sum + orderList[i].second.getPrice();
     }
     return sum;
@@ -110,7 +110,7 @@ bool Trainer::isOpen()
 {return open;}
 
 void Trainer::clear(){
-    for(int i=0; i < customersList.size(); i++){
+    for(long unsigned int i=0; i < customersList.size(); i++){
         if(customersList[i]){
             delete customersList[i];
             customersList[i] = nullptr;
@@ -132,7 +132,7 @@ void Trainer::copy(const Trainer &other){
 }
 
 void Trainer::move(Trainer &other){
-    for(int i = 0; i < other.customersList.size(); i++){
+    for(long unsigned int i = 0; i < other.customersList.size(); i++){
         customersList.push_back(other.customersList[i]);
         other.customersList[i] = nullptr;
     }

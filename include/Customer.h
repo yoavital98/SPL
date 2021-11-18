@@ -14,6 +14,7 @@ public:
     int getId() const;
     /*virtual std::string getType() const = 0;*/
     virtual Customer* getCustomer() = 0;
+    virtual ~Customer();
 private:
     const std::string name;
     const int id;

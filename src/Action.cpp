@@ -6,6 +6,7 @@ ActionStatus BaseAction::getStatus() const { return status; }
 void BaseAction::complete() { status = COMPLETED; }
 void BaseAction::error(std::string errorMsg) { BaseAction::errorMsg = errorMsg; status=ERROR; std::cout << errorMsg << std::endl;}
 std::string BaseAction::getErrorMsg() const { return "Error: "+errorMsg; }
+BaseAction::~BaseAction(){}
 
 //==============================================================================================
 //==============================================================================================
@@ -14,7 +15,7 @@ std::string BaseAction::getErrorMsg() const { return "Error: "+errorMsg; }
 OpenTrainer::OpenTrainer(int id, std::vector<Customer *> &customersList) : trainerId(id), customers(customersList) { }
 //Destructor
 OpenTrainer::~OpenTrainer(){
-
+    clear();
 }
 //Copy Constructor
 OpenTrainer::OpenTrainer(const OpenTrainer &other) : trainerId(other.trainerId){
@@ -35,12 +36,16 @@ OpenTrainer& OpenTrainer::operator=(const OpenTrainer &other){
     if(this == &other)
         return *this;
     clear();
+    for(Customer *c: other.customers)
+        customers.push_back(c->getCustomer());
+    return *this;
 }
 //Move Assignment
 OpenTrainer& OpenTrainer::operator=(OpenTrainer &&other){
 if(this!=&other)
 {
-    clear();
+    this->~OpenTrainer();
+    new (this) OpenTrainer(other);
     for(Customer *c: other.customers) {
         customers.push_back(c);
         c = nullptr;
@@ -68,7 +73,7 @@ void OpenTrainer::act(Studio &studio) {
         if(customers.size()>t->getCapacity()-t->getCustomers().size())
             BaseAction::error("Cannot open a trainer session with more customers than its capacity");
         else
-            for(int i=0;i<customers.size();i++)
+            for(long unsigned int i=0;i<customers.size();i++)
                 t->addCustomer(customers[i]);
         complete();
         t->openTrainer();
@@ -76,7 +81,7 @@ void OpenTrainer::act(Studio &studio) {
 }
 std::string OpenTrainer::toString() const {
     std::string customersName="";
-    for(int i=0;i<customers.size();i++)
+    for(long unsigned int i=0;i<customers.size();i++)
         customersName = customersName + customers[i]->getName() + ",";
     if(customersName.length()>=1)
         customersName.pop_back();
@@ -126,13 +131,13 @@ void MoveCustomer::act(Studio &studio) {
     Trainer* tSRC = studio.getTrainer(srcTrainer);
     Trainer* tDST = studio.getTrainer(dstTrainer);
     if(tSRC== nullptr || !tSRC->isOpen() || tDST== nullptr || !tDST->isOpen()
-       || tSRC->getCustomer(id) == nullptr || tDST->getCustomers().size() >= tDST->getCapacity())
+       || tSRC->getCustomer(id) == nullptr || (int)tDST->getCustomers().size() >= tDST->getCapacity())
         BaseAction::error("Cannot move customer");
 
     else{
         Customer* Mosh = tSRC->getCustomer(id);
         std::vector<OrderPair>& orders = tSRC->getOrders();
-        for(int i=0; i<orders.size(); i++)
+        for(long unsigned int i=0; i<orders.size(); i++)
             if(orders[i].first == id)
                 tDST->addOrder(orders[i]);
         tSRC->removeCustomer(id);
@@ -206,7 +211,7 @@ BaseAction* CloseAll::getAction()
 PrintWorkoutOptions::PrintWorkoutOptions() { }
 void PrintWorkoutOptions::act(Studio &studio) {
     std::vector<Workout> workouts = studio.getWorkoutOptions();
-    for(int i=0;i<workouts.size();i++)
+    for(long unsigned int i=0;i<workouts.size();i++)
     {
         std::cout << workouts[i].getName() << +", " << workouts[i].getType() << ", " << workouts[i].getPrice() << std::endl;
     }
@@ -234,11 +239,11 @@ void PrintTrainerStatus::act(Studio &studio) {
         std::cout << "Trainer " << trainerId << " status: open" << std::endl;
         std::cout << "Customers:" << std::endl;
         std::vector<Customer*> customers = t->getCustomers();
-        for(int i=0;i<customers.size();i++)
+        for(long unsigned int i=0;i<customers.size();i++)
             std::cout << customers[i]->getId() << " " << customers[i]->getName() << std::endl;
         std::cout << "Orders:" << std::endl;
         std::vector<std::pair<int, Workout>> orders = t->getOrders();
-        for(int i=0;i<orders.size();i++)
+        for(long unsigned int i=0;i<orders.size();i++)
             std::cout << orders[i].second.getName() << " " << orders[i].second.getPrice() << "NIS " << orders[i].first << std::endl;
         std::cout << "Current Trainer's Salary: " << t->getSalary() << "NIS" << std::endl;
         complete();
