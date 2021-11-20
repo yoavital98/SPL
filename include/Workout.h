@@ -16,7 +16,7 @@ public:
     WorkoutType getType() const;
     Workout& operator=(const  Workout & other);
 private:
-	const int id;
+    const int id;
     const std::string name;
     const int price;
     const WorkoutType type;

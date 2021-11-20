@@ -11,12 +11,12 @@ int main(int argc, char** argv){
         return 0;
     }
     string configurationFile = argv[1];*/
-    string configurationFile = "ExmapleInput.txt";
+    string configurationFile = "/home/oran/CLionProjects/SPL/ExmapleInput.txt";
     Studio studio(configurationFile);
     studio.start();
     if(backup!=nullptr){
-    	delete backup;
-    	backup = nullptr;
+        delete backup;
+        backup = nullptr;
     }
     return 0;
 }

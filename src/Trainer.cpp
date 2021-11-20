@@ -46,7 +46,7 @@ void Trainer::addCustomer(Customer* customer)
 
 void Trainer::removeCustomer(int id) {
     customersList.erase(customersList.begin() + id);
-    for (int i = orderList.size(); i >= 0; i--) {
+    for (int i = (int)orderList.size()-1; i >= 0; i--) {
         if (orderList[i].first == id)
             orderList.erase(orderList.begin() + i);
     }
@@ -54,6 +54,9 @@ void Trainer::removeCustomer(int id) {
 
 
 void Trainer::removeCustomers() {
+    for(long unsigned int i=0 ;i<customersList.size();i++)
+        if(customersList[i])
+            delete customersList[i];
     customersList.clear();
 }
 
@@ -72,14 +75,12 @@ std::vector<OrderPair>& Trainer::getOrders()
 
 void Trainer::order(const int customer_id, const std::vector<int> workout_ids, const std::vector<Workout>& workout_options)
 {
-    std::vector<int> ids;
     for(long unsigned int i = 0; i < customersList.size(); i++) {
         if (customersList[i]->getId() == customer_id) {
-            ids = customersList[i]->order(workout_options);
-            for(long unsigned int j=0;j<ids.size();j++)
+            for(long unsigned int j=0;j<workout_ids.size();j++)
             {
-                this->addOrder(OrderPair (customersList[i]->getId(), workout_options[ids[j]]));
-                std::cout << customersList[i]->toString() << " Is Doing " << workout_options[ids[j]].getName() << std::endl;
+                this->addOrder(OrderPair (customersList[i]->getId(), workout_options[workout_ids[j]]));
+                std::cout << customersList[i]->toString() << " Is Doing " << workout_options[workout_ids[j]].getName() << std::endl;
             }
             break;
         }
@@ -112,8 +113,7 @@ bool Trainer::isOpen()
 void Trainer::clear(){
     for(long unsigned int i=0; i < customersList.size(); i++){
         if(customersList[i]){
-            delete customersList[i];
-            customersList[i] = nullptr;
+            delete (customersList[i]);
         }
     }
     capacity = 0;

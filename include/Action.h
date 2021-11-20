@@ -22,6 +22,8 @@ public:
     virtual ~BaseAction();
 protected:
     void complete();
+    void setErrorMsg(std::string errorMsg);
+    void setStatus(ActionStatus status);
     void error(std::string errorMsg);
     std::string getErrorMsg() const;
 private:
@@ -56,9 +58,9 @@ public:
     void act(Studio &studio);
     std::string toString() const;
     BaseAction* getAction();
-    private:
-	const int trainerId;
-	std::vector<Customer *> customers;
+private:
+    const int trainerId;
+    std::vector<Customer *> customers;
     void clear();
 };
 

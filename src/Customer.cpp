@@ -11,14 +11,14 @@ Customer::~Customer(){}
 SweatyCustomer::SweatyCustomer(std::string name, int id) : Customer(name, id)  { }
 std::vector<int> SweatyCustomer::order(const std::vector<Workout> &workout_options)
 {
-    std::vector<int>* workout_list = new std::vector<int>();
+    std::vector<int> workout_list;
     for(long unsigned int i = 0; i < workout_options.size(); i++) {
         if (workout_options[i].getType() == CARDIO)
         {
-            workout_list->push_back(workout_options[i].getId());
+            workout_list.push_back(workout_options[i].getId());
         }
     }
-    return *workout_list;
+    return workout_list;
 }
 std::string SweatyCustomer::toString() const { return Customer::getName(); }
 Customer* SweatyCustomer::getCustomer()
@@ -36,10 +36,15 @@ std::vector<int> CheapCustomer::order(const std::vector<Workout> &workout_option
         int id = workout_options[i].getId();
         workouts.push_back(new pair<int, int>(price, id));
     }
-    std::vector<int>* workout_list = new std::vector<int>();
+    std::vector<int> workout_list;
     std::sort(workouts.begin(), workouts.end(), [](const std::pair<int,int> *left, const std::pair<int,int> *right) {return left->first < right->first;});
-    workout_list->push_back(workouts[0]->second);
-    return *workout_list;
+    workout_list.push_back(workouts[0]->second);
+    for(long unsigned int i=0;i<workouts.size();i++) {
+        if(workouts[i])
+            delete workouts[i];
+    }
+    workouts.clear();
+    return workout_list;
 }
 std::string CheapCustomer::toString() const { return Customer::getName();}
 Customer* CheapCustomer::getCustomer()
@@ -57,13 +62,18 @@ std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_
         workouts.push_back(new tuple<int, int, WorkoutType>(price, id, workout_options[i].getType()));
     }
     std::sort(workouts.begin(), workouts.end(), [](const tuple<int, int, WorkoutType> *left, const tuple<int, int, WorkoutType> *right) {return std::get<0>(*left) < std::get<0>(*right);});
-    std::vector<int>* workout = new vector<int>();
+    std::vector<int> workout;
     for(long unsigned int i=0; i< workouts.size(); i++){
         if(std::get<2>(*workouts[i]) == ANAEROBIC) {
-            workout->insert(workout->begin(),std::get<1>(*workouts[i]));
+            workout.insert(workout.begin(),std::get<1>(*workouts[i]));
         }
     }
-    return *workout;
+    for(long unsigned int i=0;i<workouts.size();i++) {
+        if(workouts[i])
+            delete workouts[i];
+    }
+    workouts.clear();
+    return workout;
 }
 std::string HeavyMuscleCustomer::toString() const { return Customer::getName();}
 Customer* HeavyMuscleCustomer::getCustomer()
@@ -101,6 +111,11 @@ std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_opt
         workout.push_back(mixType[0]);
     if(!cardio.empty())
         workout.push_back(anaerobic[0]);
+    for(long unsigned int i=0;i<workouts.size();i++) {
+        if(workouts[i])
+            delete workouts[i];
+    }
+    workouts.clear();
     return workout;
 }
 std::string FullBodyCustomer::toString() const { return getName(); }

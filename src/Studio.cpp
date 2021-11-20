@@ -17,6 +17,10 @@ Studio::Studio(const std::string &configFilePath)
     int lineCount = 0 ;
     int workoutId = 0;
     while(getline(inFile, line)) {
+        if(lineCount == 1)
+        {
+            trainers.reserve(std::stoi(line));
+        }
         if(lineCount==4)
         {
             std::vector<std::string> words;
@@ -40,6 +44,8 @@ Studio::Studio(const std::string &configFilePath)
                 line.erase(0, index + 2);
             }
             words.push_back(line);
+            if(words.size()<2)
+                continue;
             WorkoutType workoutType;
             if(words[1] == "Anaerobic")
                 workoutType = WorkoutType(ANAEROBIC);
@@ -59,13 +65,12 @@ Studio::~Studio() {
     clear();
 }
 //Copy Constructor
-Studio::Studio(const Studio &other){
-    open = false;
-    workout_options = other.workout_options;
+Studio::Studio(const Studio &other) : open(other.open), workout_options(other.workout_options){
     copy(other);
 }
 //Move Constructor
 Studio::Studio(Studio &&other){
+    clear();
     open = other.open;
     workout_options = other.workout_options;
     for(long unsigned int i=0;i<other.trainers.size();i++)
@@ -103,27 +108,25 @@ Studio& Studio::operator=(Studio &&other){
         }
         for(long unsigned int i=0;i<other.actionsLog.size();i++)
         {
-            actionsLog.push_back(actionsLog[i]);
-            actionsLog[i] = nullptr;
+            actionsLog.push_back(other.actionsLog[i]);
+            other.actionsLog[i] = nullptr;
         }
     }
     return *this;
 }
 void Studio::clear() {
-    for(Trainer* trainer: trainers)
+    for(long unsigned int i = 0;i<trainers.size();i++)
     {
-        if(trainer)
+        if(trainers[i])
         {
-            delete trainer;
-            trainer = nullptr;
+            delete (trainers[i]);
         }
     }
-    for(BaseAction* baseAction: actionsLog)
+    for(long unsigned int i = 0;i<actionsLog.size();i++)
     {
-        if(baseAction)
+        if(actionsLog[i])
         {
-            delete baseAction;
-            baseAction = nullptr;
+            delete (actionsLog[i]);
         }
     }
     open = false;
@@ -131,7 +134,7 @@ void Studio::clear() {
     trainers.clear();
     workout_options.clear();
 }
-void Studio::copy(const Studio &other) {
+void Studio::copy(const Studio &other){
     for(Trainer *t : other.trainers){
         trainers.push_back(new Trainer(*t));
     }
@@ -146,7 +149,7 @@ void Studio::start() {
     while(open)
     {
         std::vector<std::string> words = getInput();
-        makeAction(words, customerID);
+        try {  makeAction(words, customerID); } catch (const std::exception& e) { std::cout << "illegal input" << std::endl; }
     }
 }
 void Studio::CloseStudio() {
@@ -188,7 +191,7 @@ void Studio::makeAction(std::vector<std::string> &inputWords, int& customerID) {
                 customers.push_back(new HeavyMuscleCustomer(inputWords[i+2].substr(0,inputWords[i+2].length()-4), customerID));
             customerID++;
         }
-        OpenTrainer* actionOpenTrainer = new OpenTrainer(stoi(inputWords[1]), customers);
+        OpenTrainer* actionOpenTrainer = new OpenTrainer(stoi(inputWords[1]),  customers);
         actionOpenTrainer->act(*this);
         actionsLog.insert(actionsLog.begin(), actionOpenTrainer);
     }
