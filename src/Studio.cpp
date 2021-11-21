@@ -3,10 +3,9 @@
 
 
 //Constructors
-Studio::Studio() : open(false) {}
-Studio::Studio(const std::string &configFilePath)
+Studio::Studio() : open(false), trainers(), workout_options(), actionsLog() {}
+Studio::Studio(const std::string &configFilePath) : open(false), trainers(), workout_options(), actionsLog()
 {
-    open = false;
     std::ifstream inFile;
     inFile.open(configFilePath);
     if (!inFile) {
@@ -53,7 +52,7 @@ Studio::Studio(const std::string &configFilePath)
                 workoutType = WorkoutType(MIXED);
             if(words[1] == "Cardio")
                 workoutType = WorkoutType(CARDIO);
-            workout_options.push_back(Workout(workoutId, words[0],stoi(words[2]),workoutType));
+            workout_options.emplace_back(workoutId, words[0],stoi(words[2]),workoutType);
             workoutId++;
         }
         lineCount++;
@@ -65,52 +64,31 @@ Studio::~Studio() {
     clear();
 }
 //Copy Constructor
-Studio::Studio(const Studio &other) : open(other.open), workout_options(other.workout_options){
+Studio::Studio(const Studio &other) : open(other.open), trainers(), workout_options(other.workout_options), actionsLog() {
     copy(other);
 }
 //Move Constructor
-Studio::Studio(Studio &&other){
-    clear();
-    open = other.open;
-    workout_options = other.workout_options;
-    for(long unsigned int i=0;i<other.trainers.size();i++)
-    {
-        trainers.push_back(other.trainers[i]);
-        other.trainers[i] = nullptr;
-    }
-    for(long unsigned int i=0;i<other.actionsLog.size();i++)
-    {
-        actionsLog.push_back(actionsLog[i]);
-        actionsLog[i] = nullptr;
-    }
+Studio::Studio(Studio &&other) : open(other.open), trainers(), workout_options(other.workout_options), actionsLog(){
+    copyMove(other);
 }
+
 //Copy Assignment
 Studio& Studio::operator=(const Studio &other){
-    if(this == &other)
-        return *this;
-    clear();
-    workout_options = other.workout_options;
-    open = other.open;
-    copy(other);
+    if(this == &other){
+        clear();
+        workout_options = other.workout_options;
+        open = other.open;
+        copy(other);
+    }
     return *this;
 }
 //Move Assignment
 Studio& Studio::operator=(Studio &&other){
-    if (this != &other)
-    {
+    if(this != &other){
         clear();
         open = other.open;
         workout_options = other.workout_options;
-        for(long unsigned int i=0;i<other.trainers.size();i++)
-        {
-            trainers.push_back(other.trainers[i]);
-            other.trainers[i] = nullptr;
-        }
-        for(long unsigned int i=0;i<other.actionsLog.size();i++)
-        {
-            actionsLog.push_back(other.actionsLog[i]);
-            other.actionsLog[i] = nullptr;
-        }
+        copyMove(other);
     }
     return *this;
 }
@@ -140,6 +118,18 @@ void Studio::copy(const Studio &other){
     }
     for(BaseAction* baseAction : other.actionsLog){
         actionsLog.push_back(baseAction->getAction());
+    }
+}
+void Studio::copyMove(Studio &other){
+    for(long unsigned int i=0;i<other.trainers.size();i++)
+    {
+        trainers.push_back(other.trainers[i]);
+        other.trainers[i] = nullptr;
+    }
+    for(long unsigned int i=0;i<other.actionsLog.size();i++)
+    {
+        actionsLog.push_back(other.actionsLog[i]);
+        other.actionsLog[i] = nullptr;
     }
 }
 void Studio::start() {
@@ -176,9 +166,11 @@ std::vector<std::string> Studio::getInput()
     words.push_back((input));
     return words;
 }
-void Studio::makeAction(std::vector<std::string> &inputWords, int& customerID) {
+void Studio::makeAction(const std::vector<std::string> &inputWords, int& customerID) {
     if(inputWords[0] == "open")
     {
+        if(!inputValid(inputWords))
+            return;
         std::vector<Customer*> customers;
         for(long unsigned int i=0;i<inputWords.size()-2;i++) {
             if(inputWords[i+2].substr(inputWords[i+2].length()-3,3) == "swt")
@@ -197,24 +189,32 @@ void Studio::makeAction(std::vector<std::string> &inputWords, int& customerID) {
     }
     if(inputWords[0] == "order")
     {
+        if(!inputValid(inputWords))
+            return;
         Order* actionOrder = new Order(stoi(inputWords[1]));
         actionOrder->act(*this);
         actionsLog.insert(actionsLog.begin(), actionOrder);
     }
     if(inputWords[0] == "close")
     {
+        if(!inputValid(inputWords))
+            return;
         Close* actionClose = new Close(stoi(inputWords[1]));
         actionClose->act(*this);
         actionsLog.insert(actionsLog.begin(), actionClose);
     }
     if(inputWords[0] == "status")
     {
+        if(!inputValid(inputWords))
+            return;
         PrintTrainerStatus* actionPrintTrainerStatus = new PrintTrainerStatus(stoi(inputWords[1]));
         actionPrintTrainerStatus->act(*this);
         actionsLog.insert(actionsLog.begin(), actionPrintTrainerStatus);
     }
     if(inputWords[0] == "move")
     {
+        if(!inputValid(inputWords))
+            return;
         MoveCustomer* actionMoveCustomer = new MoveCustomer(stoi(inputWords[1]),stoi(inputWords[2]),stoi(inputWords[3]));
         actionMoveCustomer->act(*this);
         actionsLog.insert(actionsLog.begin(), actionMoveCustomer);
@@ -250,6 +250,16 @@ void Studio::makeAction(std::vector<std::string> &inputWords, int& customerID) {
         actionsPrintWorkoutOptions->act(*this);
         actionsLog.insert(actionsLog.begin(), actionsPrintWorkoutOptions);
     }
+}
+
+
+bool Studio::inputValid(const std::vector<std::string> &inputWords) {
+    if(inputWords.size()<2)
+    {
+        std::cout << "illegal input" << std::endl;
+        return false;
+    }
+    return true;
 }
 
 /*

@@ -41,28 +41,6 @@ OpenTrainer::OpenTrainer(OpenTrainer &&other) : trainerId(other.trainerId){
         c = nullptr;
     }
 }
-//Copy Assignment
-OpenTrainer& OpenTrainer::operator=(const OpenTrainer &other){
-    if(this == &other)
-        return *this;
-    clear();
-    for(Customer *c: other.customers)
-        customers.push_back(c->getCustomer());
-    return *this;
-}
-//Move Assignment
-OpenTrainer& OpenTrainer::operator=(OpenTrainer &&other){
-    if(this!=&other)
-    {
-        this->~OpenTrainer();
-        new (this) OpenTrainer(other);
-        for(Customer *c: other.customers) {
-            customers.push_back(c);
-            c = nullptr;
-        }
-    }
-    return *this;
-}
 void OpenTrainer::clear() {
     for(long unsigned int i = 0;i<customers.size();i++)
         if(customers[i] != nullptr)
@@ -71,12 +49,8 @@ void OpenTrainer::clear() {
 }
 void OpenTrainer::act(Studio &studio) {
     Trainer* t = studio.getTrainer(trainerId);
-    if(t== nullptr || t->isOpen()) {
+    if(t== nullptr || t->isOpen())
         BaseAction::error("Workout session does not exist or is already open");
-        for(long unsigned int i = 0; i < customers.size(); i++)
-            if(customers[i])
-                delete customers[i];
-    }
     else {
         long unsigned int slots = t->getCapacity() - t->getCustomers().size(); //size of free slots in a trainer
         std::vector<Customer*> c;
@@ -92,12 +66,10 @@ void OpenTrainer::act(Studio &studio) {
 std::string OpenTrainer::toString() const {
     std::string customersName="";
     for(long unsigned int i=0;i<customers.size();i++)
-        customersName = customersName + customers[i]->getName() + ",";
-    if(customersName.length()>=1)
-        customersName.pop_back();
+        customersName = customersName + customers[i]->toString() + " ";
     if(getStatus() == COMPLETED)
-        return "open " + std::to_string(trainerId) + " " + customersName +" Completed";
-    return "open " + std::to_string(trainerId) + " " + customersName+ " "+getErrorMsg();
+        return "open " + std::to_string(trainerId) + " " + customersName +"Completed";
+    return "open " + std::to_string(trainerId) + " " + customersName+getErrorMsg();
 }
 BaseAction* OpenTrainer::getAction()
 {
@@ -121,8 +93,8 @@ void Order::act(Studio &studio) {
 }
 std::string Order::toString() const {
     if(getStatus() == COMPLETED)
-        return "Order " + std::to_string(trainerId) + " Completed";
-    return "Order " + std::to_string(trainerId) + " " + getErrorMsg();
+        return "order " + std::to_string(trainerId) + " Completed";
+    return "order " + std::to_string(trainerId) + " " + getErrorMsg();
 }
 BaseAction* Order::getAction()
 {
@@ -186,8 +158,8 @@ void Close::act(Studio &studio) {
 
 std::string Close::toString() const {
     if(getStatus() == COMPLETED)
-        return "Close " + std::to_string(trainerId) + " Completed";
-    return "Close " + std::to_string(trainerId) + " "+ getErrorMsg();
+        return "close " + std::to_string(trainerId) + " Completed";
+    return "close " + std::to_string(trainerId) + " "+ getErrorMsg();
 }
 BaseAction* Close::getAction()
 {
@@ -213,8 +185,8 @@ void CloseAll::act(Studio &studio){
 }
 std::string CloseAll::toString() const {
     if(getStatus() == COMPLETED)
-        return "CloseAll Completed";
-    return "CloseAll " + getErrorMsg();
+        return "closeAll Completed";
+    return "closeAll " + getErrorMsg();
 }
 BaseAction* CloseAll::getAction()
 {
@@ -238,8 +210,8 @@ void PrintWorkoutOptions::act(Studio &studio) {
 }
 std::string PrintWorkoutOptions::toString() const {
     if(getStatus() == COMPLETED)
-        return "PrintWorkoutOptions Completed";
-    return "PrintWorkoutOptions " + getErrorMsg();
+        return "workout_options Completed";
+    return "workout_options " + getErrorMsg();
 }
 BaseAction* PrintWorkoutOptions::getAction()
 {
@@ -275,8 +247,8 @@ void PrintTrainerStatus::act(Studio &studio) {
 
 std::string PrintTrainerStatus::toString() const {
     if(getStatus() == COMPLETED)
-        return "PrintTrainerStatus Completed";
-    return "PrintTrainerStatus " + getErrorMsg();
+        return "status "+std::to_string(trainerId)+" Completed";
+    return "status "+std::to_string(trainerId)+" " + getErrorMsg();
 }
 BaseAction* PrintTrainerStatus::getAction()
 {
@@ -296,8 +268,8 @@ void PrintActionsLog::act(Studio &studio) {
 }
 std::string PrintActionsLog::toString() const {
     if(getStatus() == COMPLETED)
-        return "PrintActionsLog Completed";
-    return "PrintActionsLog " + getErrorMsg();
+        return "log Completed";
+    return "log " + getErrorMsg();
 }
 BaseAction* PrintActionsLog::getAction()
 {
@@ -317,8 +289,8 @@ void BackupStudio::act(Studio &studio){
 }
 std::string BackupStudio::toString() const {
     if(getStatus() == COMPLETED)
-        return "BackupStudio Completed";
-    return "BackupStudio " + getErrorMsg();
+        return "backup Completed";
+    return "backup " + getErrorMsg();
 }
 BaseAction* BackupStudio::getAction()
 {
@@ -340,8 +312,8 @@ void RestoreStudio::act(Studio &studio) {
 }
 std::string RestoreStudio::toString() const {
     if(getStatus() == COMPLETED)
-        return "RestoreStudio Completed";
-    return "RestoreStudio " + getErrorMsg();
+        return "restore Completed";
+    return "restore " + getErrorMsg();
 }
 BaseAction* RestoreStudio::getAction()
 {

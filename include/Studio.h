@@ -32,13 +32,15 @@ public:
 
 private:
     std::vector<std::string> getInput();
-    void makeAction(std::vector<std::string> &inputWords, int &customerID);
+    void makeAction(const std::vector<std::string> &inputWords, int &customerID);
+    static bool inputValid(const std::vector<std::string> &inputWords);
     bool open;
     std::vector<Trainer*> trainers;
     std::vector<Workout> workout_options;
     std::vector<BaseAction*> actionsLog;
     void clear();
     void copy(const Studio &other);
+    void copyMove(Studio &other);
 };
 
 #endif
